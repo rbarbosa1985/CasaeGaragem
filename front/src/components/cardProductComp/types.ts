@@ -1,7 +1,7 @@
 export type RecordResponse = {
   content: Products[];
   totalPages: number;
-}
+};
 
 export type Products = {
   id: number;
@@ -12,4 +12,4 @@ export type Products = {
   uncompra: string;
   quantidadecx: number;
   quantidade: number;
-}
+};
