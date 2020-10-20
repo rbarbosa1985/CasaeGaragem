@@ -1,87 +1,118 @@
-import React, {useEffect, useState} from "react";
-import {RecordResponse} from "./types";
+import React, { useEffect, useState } from "react";
+import { RecordResponse } from "./types";
 import api from "../../services/api";
-import Pagination from '../Pagination/index';
+import Pagination from "../Pagination/index";
 import {
   ContBody,
   CardProduct,
-  InfCard,
+  HeaderCard,
+  Id,
+  Descricao,
+  Fabricante,
+  Estoque,
+  BodyCard,
+  Fornecedor,
   InfFornecedor,
-  InfCont,
-  InfContColumn,
   Cont,
-  ContTitle,
+  ContRow,
+  InfCont,
+  TitleHeader,
+  TextHeader,
+  Title,
   Text,
 } from "./style";
 
 function CardProductComp() {
-  
   const [records, setRecords] = useState<RecordResponse>();
-  const [ activePage, setActivePage ] = useState(0);
+  const [activePage, setActivePage] = useState(0);
 
   useEffect(() => {
-    api.get(`/products?linesPerPage=4&page=${activePage}`).then( response => {setRecords(response.data) });
-  }, [activePage])
+    api.get(`/products?linesPerPage=5&page=${activePage}`).then((response) => {
+      setRecords(response.data);
+    });
+  }, [activePage]);
 
-    const handlePageChange = (index: number) => {
+  const handlePageChange = (index: number) => {
     setActivePage(index);
-}
+  };
 
   return (
     <>
       <ContBody>
-      {records?.content.map(product =>(
-        <CardProduct>
-          <InfCard>
-              <Text>CODIGO: {product?.id}</Text>
-              <Text>DESCRICAO: </Text>
-              <Text>{product?.descricao}</Text>
-              <Text>FABRICANTE: {product?.unvenda}</Text>
-              <Text>QTD ESTOQUE:</Text>
-              <Text>{product?.quantidade}</Text>
-          </InfCard>
-          <InfFornecedor>
-          <Text>FORNCEDOR 01:</Text>
-            <Text>21-INDUSTRIA DE FORJADOS SAO ROMAO LTDA</Text>
-            <Text>FORNCEDOR 02:</Text>
-            <Text>21-INDUSTRIA DE FORJADOS SAO ROMAO LTDA</Text>
-            <Text>FORNCEDOR 03:</Text>
-            <Text>21-INDUSTRIA DE FORJADOS SAO ROMAO LTDA</Text>
-          </InfFornecedor>
-          <InfCont>
-            <InfContColumn>
+        {records?.content.map((product) => (
+          <CardProduct>
+            <HeaderCard>
+              <Id>
+                <TitleHeader>Id:</TitleHeader>
+                <TextHeader>{product?.id}</TextHeader>
+              </Id>
+              <Descricao>
+                <TitleHeader>Descrição:</TitleHeader>
+                <TextHeader>{product?.descricao}</TextHeader>
+              </Descricao>
+              <Fabricante>
+                <TitleHeader>Fabricante:</TitleHeader>
+                <TextHeader>{product?.unvenda}</TextHeader>
+              </Fabricante>
+              <Estoque>
+                <TitleHeader>Estoque:</TitleHeader>
+                <TextHeader>{product?.quantidade}</TextHeader>
+              </Estoque>
+            </HeaderCard>
+            <BodyCard>
+              <Fornecedor>
+                <InfFornecedor>
+                  <Title>Fornecedor 01:</Title>
+                  <Text>21-INDUSTRIA DE FORJADOS SAO ROMAO LTDA</Text>
+                </InfFornecedor>
+                <InfFornecedor>
+                  <Title>Fornecedor 02:</Title>
+                  <Text>21-INDUSTRIA DE FORJADOS SAO ROMAO LTDA</Text>
+                </InfFornecedor>
+                <InfFornecedor>
+                  <Title>Fornecedor 03:</Title>
+                  <Text>21-INDUSTRIA DE FORJADOS SAO ROMAO LTDA</Text>
+                </InfFornecedor>
+              </Fornecedor>
               <Cont>
-                <ContTitle>Giro de estoque</ContTitle>
-                <Text>10</Text>
+                <ContRow>
+                  <InfCont>
+                    <Title>Giro de estoque:</Title>
+                    <Text>10</Text>
+                  </InfCont>
+                  <InfCont>
+                    <Title>Estoque mínimo:</Title>
+                    <Text>20</Text>
+                  </InfCont>
+                  <InfCont>
+                    <Title>Estoque máximo:</Title>
+                    <Text>30</Text>
+                  </InfCont>
+                </ContRow>
+                <ContRow>
+                  <InfCont>
+                    <Title>Média de venda anual:</Title>
+                    <Text>40</Text>
+                  </InfCont>
+                  <InfCont>
+                    <Title>Média de venda mensal:</Title>
+                    <Text>50</Text>
+                  </InfCont>
+                  <InfCont>
+                    <Title>Média de compra:</Title>
+                    <Text>60</Text>
+                  </InfCont>
+                </ContRow>
               </Cont>
-              <Cont>
-                <ContTitle>Estoque mínimo</ContTitle>
-                <Text>20</Text>
-              </Cont>
-              <Cont>
-                <ContTitle>Estoque máximo</ContTitle>
-                <Text>30</Text>
-              </Cont>
-            </InfContColumn>
-            <InfContColumn>
-              <Cont>
-                <ContTitle>Média de venda 2019</ContTitle>
-                <Text>40</Text>
-              </Cont>
-              <Cont>
-                <ContTitle>Média de venda mensal</ContTitle>
-                <Text>50</Text>
-              </Cont>
-              <Cont>
-                <ContTitle>Média de compra</ContTitle>
-                <Text>60</Text>
-              </Cont>
-            </InfContColumn>
-          </InfCont>
-        </CardProduct>
+            </BodyCard>
+          </CardProduct>
         ))}
       </ContBody>
-      <Pagination activePage={activePage} totalPages={records?.totalPages} goToPage={handlePageChange} />
+      <Pagination
+        activePage={activePage}
+        totalPages={records?.totalPages}
+        goToPage={handlePageChange}
+      />
     </>
   );
 }

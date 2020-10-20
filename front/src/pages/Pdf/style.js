@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { StyleSheet } from '@react-pdf/renderer';
+import { StyleSheet } from "@react-pdf/renderer";
 
 export const Header = styled.div`
   height: 80px;
@@ -25,8 +25,8 @@ export const Body = styled.div`
 
 export const styles = StyleSheet.create({
   pdfviewer: {
-    marginTop:'20px',
-    width: '80%',
-    height: '800px', 
-  }
+    marginTop: "20px",
+    width: "80%",
+    height: "800px",
+  },
 });

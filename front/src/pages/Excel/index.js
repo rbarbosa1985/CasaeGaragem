@@ -7,62 +7,42 @@ const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
 const ExcelColumn = ReactExport.ExcelFile.ExcelColumn;
 
 const dataSet1 = [
-    {
-        name: "Johson",
-        amount: 30000,
-        sex: 'M',
-        is_married: true
-    },
-    {
-        name: "Monika",
-        amount: 355000,
-        sex: 'F',
-        is_married: false
-    },
-    {
-        name: "John",
-        amount: 250000,
-        sex: 'M',
-        is_married: false
-    },
-    {
-        name: "Josef",
-        amount: 450500,
-        sex: 'M',
-        is_married: true
-    }
+  {
+    id: 12,
+    descricao: "TELEVISÃO 49",
+    fabricante: 2,
+    estoque: 2,
+    forn1: "21-INDUSTRIA DE FORJADOS SAO ROMAO LTDA",
+    forn2: "21-INDUSTRIA DE FORJADOS SAO ROMAO LTDA",
+    forn3: "21-INDUSTRIA DE FORJADOS SAO ROMAO LTDA",
+    giro: 10,
+    estmin: 20,
+    estmax: 30,
+    medanu: 40,
+    medmen: 50,
+    medcom: 60,
+  },
 ];
-
-const dataSet2 = [
-    {
-        name: "Johnson",
-        total: 25,
-        remainig: 16
-    },
-    {
-        name: "Josef",
-        total: 25,
-        remainig: 7
-    }
-];
-
 
 function Excel() {
   return (
-      <ExcelFile element={<Botao>EXCEL</Botao>}  >
-                <ExcelSheet data={dataSet1} name="Employees">
-                    <ExcelColumn label="Name" value="name"/>
-                    <ExcelColumn label="Wallet Money" value="amount"/>
-                    <ExcelColumn label="Gender" value="sex"/>
-                    <ExcelColumn label="Marital Status"
-                                 value={(col) => col.is_married ? "Married" : "Single"}/>
-                </ExcelSheet>
-                <ExcelSheet data={dataSet2} name="Leaves">
-                    <ExcelColumn label="Name" value="name"/>
-                    <ExcelColumn label="Total Leaves" value="total"/>
-                    <ExcelColumn label="Remaining Leaves" value="remaining"/>
-                </ExcelSheet>
-         </ExcelFile> 
+    <ExcelFile element={<Botao>EXCEL</Botao>}>
+      <ExcelSheet data={dataSet1} name="Produtos">
+        <ExcelColumn label="Id" value="id" />
+        <ExcelColumn label="Descricao" value="descricao" />
+        <ExcelColumn label="Fabricante" value="fabricante" />
+        <ExcelColumn label="Estoque" value="estoque" />
+        <ExcelColumn label="Fornecedor 01" value="forn1" />
+        <ExcelColumn label="Fornecedor 02" value="forn2" />
+        <ExcelColumn label="Fornecedor 03" value="forn3" />
+        <ExcelColumn label="Giro de estoque" value="giro" />
+        <ExcelColumn label="Estoque minimo" value="estmin" />
+        <ExcelColumn label="Estoque maximo" value="estmax" />
+        <ExcelColumn label="Media de venda anual" value="medanu" />
+        <ExcelColumn label="Media de venda mensal" value="medmen" />
+        <ExcelColumn label="Media de compra" value="medcom" />
+      </ExcelSheet>
+    </ExcelFile>
   );
 }
 

@@ -6,57 +6,106 @@ export const ContBody = styled.div`
 `;
 
 export const CardProduct = styled.div`
-  flex-direction: row;
+  flex-direction: column;
   display: flex;
   margin-bottom: 1vh;
-  padding: 1vh 2vh;
   border-radius: 10px;
   background-color: var(--color-lightgray);
 `;
 
-export const InfCard = styled.div`
+export const HeaderCard = styled.div`
+  border-radius: 10px 10px 0px 0px;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  background-color: var(--color-black);
+  color: var(--color-yellow);
+  align-items: center;
+`;
+
+export const Id = styled.div`
+  padding: 5px;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+`;
+
+export const Descricao = styled.div`
+  padding: 5px;
+  flex: 5;
+  display: flex;
+  flex-direction: row;
+`;
+
+export const Fabricante = styled.div`
+  padding: 5px;
+  flex: 4;
+  display: flex;
+  flex-direction: row;
+`;
+
+export const Estoque = styled.div`
+  padding: 5px;
+  flex: 2;
+  display: flex;
+  flex-direction: row;
+`;
+
+export const BodyCard = styled.div`
+  flex: 1;
+  flex-direction: row;
+  display: flex;
+`;
+
+export const Fornecedor = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 5px;
   justify-content: space-between;
 `;
 
 export const InfFornecedor = styled.div`
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const Cont = styled.div`
   flex: 1;
   display: flex;
-  padding: 5px;
-  justify-content: space-between;
   flex-direction: column;
-  align-items: center;
+`;
+
+export const ContRow = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: row;
 `;
 
 export const InfCont = styled.div`
   flex: 1;
   display: flex;
-  flex-direction: row;
-`;
-
-export const InfContColumn = styled.div`
-  width: 50%;
-  padding: 5px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`;
-
-export const Cont = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   align-items: center;
+  padding: 5px;
 `;
 
-export const ContTitle = styled.text`
+export const TitleHeader = styled.text`
+  font-size: 22px;
   font-weight: bold;
-  font-size: 14px;
+  margin-right: 4px;
+`;
+
+export const TextHeader = styled.text`
+  font-size: 22px;
+`;
+
+export const Title = styled.text`
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 4px;
 `;
 
 export const Text = styled.text`
-  font-size: 14px;
+  font-size: 18px;
 `;
