@@ -3,10 +3,10 @@ package com.casaegaragem.app.dto;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import com.casaegaragem.app.entities.Manufacturer;
 import com.casaegaragem.app.entities.Product;
+import com.casaegaragem.app.entities.reports.Providers;
 
 public class ProductDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -26,6 +26,7 @@ public class ProductDTO implements Serializable {
 	private Integer media_mensal = 18;
 	private Integer media_venda = 19;
 	private Manufacturer manufacture;
+	private List<ProviderDTO> providers = new ArrayList<>();
 		
 	public ProductDTO() {
 		
@@ -58,6 +59,11 @@ public class ProductDTO implements Serializable {
 	public ProductDTO(Product entity, Manufacturer manufacturer) {
 		this(entity);
 		this.manufacture = manufacturer;
+	}
+	
+	public ProductDTO(Product entity, List<Providers> providers) {
+		this(entity);
+		providers.forEach(prov -> this.providers.add(new ProviderDTO(prov.getProvider_id(), prov.getName())));
 	}
 
 	public Long getId() {
@@ -154,6 +160,14 @@ public class ProductDTO implements Serializable {
 
 	public void setManufacture(Manufacturer manufacture) {
 		this.manufacture = manufacture;
+	}
+
+	public List<ProviderDTO> getProviders() {
+		return providers;
+	}
+
+	public void setProviders(List<ProviderDTO> providers) {
+		this.providers = providers;
 	}
 
 	@Override

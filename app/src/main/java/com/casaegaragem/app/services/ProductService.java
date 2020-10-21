@@ -18,9 +18,18 @@ public class ProductService {
 
 	@Transactional(readOnly = true)
 	public Page<ProductDTO> findAllPaged(PageRequest pageRequest) {
+		Integer quantity = 0;
+		Integer quantity2 = 0;
+		
 		Page<Product> list = repository.findAll(pageRequest);
 		
-		return list.map(x -> new ProductDTO(x));
+		quantity = repository.quantityInput(1).getQtdEntrada();
+		quantity2 = repository.quantityExit(1).getQtdSaida();
+		
+		System.out.println(quantity);
+		System.out.println(quantity2);
+		
+		return list.map(x -> new ProductDTO(x, repository.providers(x.getId())));
 	}
 	
 	

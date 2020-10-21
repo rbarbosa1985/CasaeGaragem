@@ -22,4 +22,10 @@ export type Products = {
       id: number,
       name: string
   }
+  providers: Providers[];
 };
+
+export type Providers = {
+  id: number;
+  name: string;
+}

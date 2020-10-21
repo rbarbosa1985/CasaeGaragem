@@ -63,15 +63,15 @@ function CardProductComp() {
               <Fornecedor>
                 <InfFornecedor>
                   <Title>Fornecedor 01:</Title>
-                  <Text>21-INDUSTRIA DE FORJADOS SAO ROMAO LTDA</Text>
+                  <Text>{product?.providers[0]?.name}</Text>
                 </InfFornecedor>
                 <InfFornecedor>
                   <Title>Fornecedor 02:</Title>
-                  <Text>21-INDUSTRIA DE FORJADOS SAO ROMAO LTDA</Text>
+                  <Text>{product?.providers[1]?.name}</Text>
                 </InfFornecedor>
                 <InfFornecedor>
                   <Title>Fornecedor 03:</Title>
-                  <Text>21-INDUSTRIA DE FORJADOS SAO ROMAO LTDA</Text>
+                  <Text>{product?.providers[2]?.name}</Text>
                 </InfFornecedor>
               </Fornecedor>
               <Cont>
