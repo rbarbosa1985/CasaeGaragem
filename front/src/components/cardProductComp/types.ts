@@ -12,4 +12,14 @@ export type Products = {
   uncompra: string;
   quantidadecx: number;
   quantidade: number;
+  giro: number,
+  estoque_min: number,
+  estoque_max: number,
+  media_anual: number,
+  media_mensal: number,
+  media_venda: number,
+  manufacture: {
+      id: number,
+      name: string
+  }
 };

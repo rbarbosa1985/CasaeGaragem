@@ -52,7 +52,7 @@ function CardProductComp() {
               </Descricao>
               <Fabricante>
                 <TitleHeader>Fabricante:</TitleHeader>
-                <TextHeader>{product?.unvenda}</TextHeader>
+                <TextHeader>{product?.manufacture.name}</TextHeader>
               </Fabricante>
               <Estoque>
                 <TitleHeader>Estoque:</TitleHeader>
@@ -78,29 +78,29 @@ function CardProductComp() {
                 <ContRow>
                   <InfCont>
                     <Title>Giro de estoque:</Title>
-                    <Text>10</Text>
+                    <Text>{product?.giro}</Text>
                   </InfCont>
                   <InfCont>
                     <Title>Estoque mínimo:</Title>
-                    <Text>20</Text>
+                    <Text>{product?.estoque_min}</Text>
                   </InfCont>
                   <InfCont>
                     <Title>Estoque máximo:</Title>
-                    <Text>30</Text>
+                    <Text>{product?.estoque_max}</Text>
                   </InfCont>
                 </ContRow>
                 <ContRow>
                   <InfCont>
                     <Title>Média de venda anual:</Title>
-                    <Text>40</Text>
+                    <Text>{product?.media_anual}</Text>
                   </InfCont>
                   <InfCont>
                     <Title>Média de venda mensal:</Title>
-                    <Text>50</Text>
+                    <Text>{product?.media_mensal}</Text>
                   </InfCont>
                   <InfCont>
                     <Title>Média de compra:</Title>
-                    <Text>60</Text>
+                    <Text>{product?.media_venda}</Text>
                   </InfCont>
                 </ContRow>
               </Cont>

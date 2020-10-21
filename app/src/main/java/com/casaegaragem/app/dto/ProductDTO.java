@@ -1,7 +1,11 @@
 package com.casaegaragem.app.dto;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
+import com.casaegaragem.app.entities.Manufacturer;
 import com.casaegaragem.app.entities.Product;
 
 public class ProductDTO implements Serializable {
@@ -15,7 +19,14 @@ public class ProductDTO implements Serializable {
 	private String uncompra;
 	private Integer quantidadecx;
 	private Integer quantidade;
-
+	private Integer giro = 2;
+	private Integer estoque_min = 15;
+	private Integer estoque_max = 16;
+	private Integer media_anual = 17;
+	private Integer media_mensal = 18;
+	private Integer media_venda = 19;
+	private Manufacturer manufacture;
+	
 	public ProductDTO() {
 		
 	}
@@ -41,6 +52,12 @@ public class ProductDTO implements Serializable {
 		this.uncompra = entity.getUncompra();
 		this.quantidadecx = entity.getQuantidadecx();
 		this.quantidade = entity.getQuantidade();
+		this.manufacture = entity.getManufacturer();
+	}
+	
+	public ProductDTO(Product entity, Manufacturer manufacturer) {
+		this(entity);
+		this.manufacture = manufacturer;
 	}
 
 	public Long getId() {
@@ -105,6 +122,38 @@ public class ProductDTO implements Serializable {
 
 	public void setQuantidade(Integer quantidade) {
 		this.quantidade = quantidade;
+	}
+	
+	public Integer getGiro() {
+		return giro * quantidade;
+	}
+
+	public Integer getEstoque_min() {
+		return estoque_min;
+	}
+
+	public Integer getEstoque_max() {
+		return estoque_max;
+	}
+
+	public Integer getMedia_anual() {
+		return media_anual;
+	}
+
+	public Integer getMedia_mensal() {
+		return media_mensal;
+	}
+
+	public Integer getMedia_venda() {
+		return media_venda;
+	}
+	
+	public Manufacturer getManufacture() {
+		return manufacture;
+	}
+
+	public void setManufacture(Manufacturer manufacture) {
+		this.manufacture = manufacture;
 	}
 
 	@Override
