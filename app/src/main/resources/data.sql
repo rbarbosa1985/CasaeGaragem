@@ -2,12 +2,12 @@ INSERT INTO tb_client (name, created_At) VALUES ('Roberto', NOW());
 INSERT INTO tb_client (name, created_At) VALUES ('Ercules', NOW());
 INSERT INTO tb_client (name, created_At) VALUES ('Camila', NOW());
 
-INSERT INTO tb_provider (name, created_At) VALUES ('Sony', NOW());
-INSERT INTO tb_provider (name, created_At) VALUES ('Samsung', NOW());
-INSERT INTO tb_provider (name, created_At) VALUES ('LG', NOW());
-INSERT INTO tb_provider (name, created_At) VALUES ('Creative', NOW());
-INSERT INTO tb_provider (name, created_At) VALUES ('Philco', NOW());
-INSERT INTO tb_provider (name, created_At) VALUES ('Microsoft', NOW());
+INSERT INTO tb_provider (name, created_At, tempo) VALUES ('Sony', NOW(), 30);
+INSERT INTO tb_provider (name, created_At, tempo) VALUES ('Samsung', NOW(), 45);
+INSERT INTO tb_provider (name, created_At, tempo) VALUES ('LG', NOW(), 15);
+INSERT INTO tb_provider (name, created_At, tempo) VALUES ('Creative', NOW(), 10);
+INSERT INTO tb_provider (name, created_At, tempo) VALUES ('Philco', NOW(), 60);
+INSERT INTO tb_provider (name, created_At, tempo) VALUES ('Microsoft', NOW(), 5);
 
 INSERT INTO tb_manufacturer (name, created_At) VALUES ('Sony2', NOW());
 INSERT INTO tb_manufacturer (name, created_At) VALUES ('Samsung2', NOW());

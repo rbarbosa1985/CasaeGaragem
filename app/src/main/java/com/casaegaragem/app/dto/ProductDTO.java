@@ -26,7 +26,7 @@ public class ProductDTO implements Serializable {
 	private Integer media_mensal = 18;
 	private Integer media_venda = 19;
 	private Manufacturer manufacture;
-	
+		
 	public ProductDTO() {
 		
 	}

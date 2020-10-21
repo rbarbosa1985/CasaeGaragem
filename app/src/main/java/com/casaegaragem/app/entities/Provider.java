@@ -26,6 +26,7 @@ public class Provider implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
+	private Integer tempo;
 	
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant updatedAt;
@@ -41,9 +42,10 @@ public class Provider implements Serializable {
 		
 	}
 
-	public Provider(Long id, String name) {
+	public Provider(Long id, String name, Integer tempo) {
 		this.id = id;
 		this.name = name;
+		this.tempo = tempo;
 	}
 
 	public Long getId() {
@@ -62,6 +64,14 @@ public class Provider implements Serializable {
 		this.name = name;
 	}
 	
+	public Integer getTempo() {
+		return tempo;
+	}
+
+	public void setTempo(Integer tempo) {
+		this.tempo = tempo;
+	}
+
 	@PrePersist
 	public void prePersist() {
 		createdAt = Instant.now();
