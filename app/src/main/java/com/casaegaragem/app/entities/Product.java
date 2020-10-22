@@ -24,9 +24,9 @@ public class Product implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	private Long codigoBarras;
-	private Long referencia;
+	private Integer id;
+	private Integer codigoBarras;
+	private Integer referencia;
 	private String descricao;
 	private String unvenda;
 	private String uncompra;
@@ -55,7 +55,7 @@ public class Product implements Serializable {
 		
 	}
 	
-	public Product(Long id, Long codigoBarras, Long referencia, String descricao, String unvenda, String uncompra,
+	public Product(Integer id, Integer codigoBarras, Integer referencia, String descricao, String unvenda, String uncompra,
 			Integer quantidadecx, Integer quantidade) {
 		this.id = id;
 		this.codigoBarras = codigoBarras;
@@ -67,7 +67,7 @@ public class Product implements Serializable {
 		this.quantidade = quantidade;
 	}
 
-	public Product(Long id, Long codigoBarras, Long referencia, String descricao, String unvenda, String uncompra,
+	public Product(Integer id, Integer codigoBarras, Integer referencia, String descricao, String unvenda, String uncompra,
 			Integer quantidadecx, Integer quantidade, Manufacturer manufacturer) {
 		super();
 		this.id = id;
@@ -81,27 +81,27 @@ public class Product implements Serializable {
 		this.manufacturer = manufacturer;
 	}
 	
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public Long getCodigoBarras() {
+	public Integer getCodigoBarras() {
 		return codigoBarras;
 	}
 
-	public void setCodigoBarras(Long codigoBarras) {
+	public void setCodigoBarras(Integer codigoBarras) {
 		this.codigoBarras = codigoBarras;
 	}
 
-	public Long getReferencia() {
+	public Integer getReferencia() {
 		return referencia;
 	}
 
-	public void setReferencia(Long referencia) {
+	public void setReferencia(Integer referencia) {
 		this.referencia = referencia;
 	}
 

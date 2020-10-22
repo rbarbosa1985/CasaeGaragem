@@ -1,24 +1,17 @@
 import React, { useState } from "react";
-import { HeaderBody, Pesquisa, Data, Botao } from "./style";
-import { Link } from "react-router-dom";
+import { HeaderBody, Pesquisa, Data, Botao, customStyles } from "./style";
 import Modal from "react-modal";
 import Excel from "../../pages/Excel/index";
+import { Link } from "react-router-dom";
+import {RecordResponse} from "./types";
 
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-  },
-};
 
-function Home(OnPress) {
-  const [modalIsOpen, setIsOpen] = useState(false);
-  function openModal() {
-    setIsOpen(true);
+
+function Home({ content }: RecordResponse) {
+  
+   const [modalIsOpen, setIsOpen] = useState(false);
+   function openModal() {
+     setIsOpen(true);
   }
 
   function closeModal() {
@@ -34,8 +27,8 @@ function Home(OnPress) {
         contentLabel="Exportar"
       >
         <div style={{ display: "flex", flexDirection: "row" }}>
-          <Excel />
-          <Link to="pdf">
+          <Excel content={content}/>
+          <Link to="pdf" >
             <Botao> PDF </Botao>
           </Link>
         </div>

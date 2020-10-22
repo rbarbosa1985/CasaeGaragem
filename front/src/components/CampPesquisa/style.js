@@ -77,3 +77,13 @@ export const Botao = styled.button`
     transition: 0.3s all ease-out;
   }
 `;
+export const customStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+  },
+};

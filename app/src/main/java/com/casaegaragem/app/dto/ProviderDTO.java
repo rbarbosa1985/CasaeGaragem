@@ -7,14 +7,16 @@ public class ProviderDTO implements Serializable {
 	
 	private Long id;
 	private String name;
+	private Integer tempo;
 	
 	public ProviderDTO() {
 		
 	}
 
-	public ProviderDTO(Long id, String name) {
+	public ProviderDTO(Long id, String name, Integer tempo) {
 		this.id = id;
 		this.name = name;
+		this.tempo = tempo;
 	}
 
 	public Long getId() {
@@ -31,6 +33,14 @@ public class ProviderDTO implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public Integer getTempo() {
+		return tempo;
+	}
+
+	public void setTempo(Integer tempo) {
+		this.tempo = tempo;
 	}
 
 	@Override

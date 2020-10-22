@@ -1,5 +1,6 @@
 export type RecordResponse = {
-  content?: Products[];
+  content: Products[];
+  totalPages: number;
 };
 
 export type Products = {

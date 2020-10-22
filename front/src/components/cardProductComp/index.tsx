@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { RecordResponse } from "./types";
-import api from "../../services/api";
-import Pagination from "../Pagination/index";
 import {
   ContBody,
   CardProduct,
@@ -22,25 +20,12 @@ import {
   Text,
 } from "./style";
 
-function CardProductComp() {
-  const [records, setRecords] = useState<RecordResponse>();
-  const [activePage, setActivePage] = useState(0);
-
-  useEffect(() => {
-    api.get(`/products?linesPerPage=5&page=${activePage}`).then((response) => {
-      setRecords(response.data);
-    });
-  }, [activePage]);
-
-  const handlePageChange = (index: number) => {
-    setActivePage(index);
-  };
-
+function CardProductComp({ content }: RecordResponse) {
   return (
     <>
       <ContBody>
-        {records?.content.map((product) => (
-          <CardProduct>
+        {content?.map((product) => (
+          <CardProduct key={product?.id}>
             <HeaderCard>
               <Id>
                 <TitleHeader>Id:</TitleHeader>
@@ -108,11 +93,6 @@ function CardProductComp() {
           </CardProduct>
         ))}
       </ContBody>
-      <Pagination
-        activePage={activePage}
-        totalPages={records?.totalPages}
-        goToPage={handlePageChange}
-      />
     </>
   );
 }

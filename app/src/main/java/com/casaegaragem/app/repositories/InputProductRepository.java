@@ -7,5 +7,7 @@ import com.casaegaragem.app.entities.InputProduct;
 
 @Repository
 public interface InputProductRepository extends JpaRepository<InputProduct, Long> {
+	
+	
 
 }

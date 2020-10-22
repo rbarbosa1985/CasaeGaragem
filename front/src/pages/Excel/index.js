@@ -6,41 +6,23 @@ const ExcelFile = ReactExport.ExcelFile;
 const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
 const ExcelColumn = ReactExport.ExcelFile.ExcelColumn;
 
-const dataSet1 = [
-  {
-    id: 12,
-    descricao: "TELEVISÃO 49",
-    fabricante: 2,
-    estoque: 2,
-    forn1: "21-INDUSTRIA DE FORJADOS SAO ROMAO LTDA",
-    forn2: "21-INDUSTRIA DE FORJADOS SAO ROMAO LTDA",
-    forn3: "21-INDUSTRIA DE FORJADOS SAO ROMAO LTDA",
-    giro: 10,
-    estmin: 20,
-    estmax: 30,
-    medanu: 40,
-    medmen: 50,
-    medcom: 60,
-  },
-];
-
-function Excel() {
+function Excel(content) {
   return (
     <ExcelFile element={<Botao>EXCEL</Botao>}>
-      <ExcelSheet data={dataSet1} name="Produtos">
+      <ExcelSheet data={content} name="Produtos">
         <ExcelColumn label="Id" value="id" />
         <ExcelColumn label="Descricao" value="descricao" />
-        <ExcelColumn label="Fabricante" value="fabricante" />
-        <ExcelColumn label="Estoque" value="estoque" />
-        <ExcelColumn label="Fornecedor 01" value="forn1" />
-        <ExcelColumn label="Fornecedor 02" value="forn2" />
-        <ExcelColumn label="Fornecedor 03" value="forn3" />
+        {/* <ExcelColumn label="Fabricante" value="manufacture.name" />
+        <ExcelColumn label="Estoque" value="quantidade" />
+        <ExcelColumn label="Fornecedor 01" value="providers[0].name" />
+        <ExcelColumn label="Fornecedor 02" value="providers[1].name" />
+        <ExcelColumn label="Fornecedor 03" value="providers[2].name" />
         <ExcelColumn label="Giro de estoque" value="giro" />
-        <ExcelColumn label="Estoque minimo" value="estmin" />
-        <ExcelColumn label="Estoque maximo" value="estmax" />
-        <ExcelColumn label="Media de venda anual" value="medanu" />
-        <ExcelColumn label="Media de venda mensal" value="medmen" />
-        <ExcelColumn label="Media de compra" value="medcom" />
+        <ExcelColumn label="Estoque minimo" value="estoque_min" />
+        <ExcelColumn label="Estoque maximo" value="estoque_max" />
+        <ExcelColumn label="Media de venda anual" value="media_anual" />
+        <ExcelColumn label="Media de venda mensal" value="media_mensal" />
+        <ExcelColumn label="Media de compra" value="media_venda" /> */}
       </ExcelSheet>
     </ExcelFile>
   );

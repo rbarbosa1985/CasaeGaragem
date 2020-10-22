@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Repository;
 
 import com.casaegaragem.app.entities.Product;
@@ -14,6 +15,7 @@ import com.casaegaragem.app.entities.reports.QuantityInput;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
 	
+	
 	@Query(value = "SELECT SUM(ip.QTD_ITENS) as QtdEntrada "
 			+ "FROM TB_INPUTPRODUCT as ip,  TB_INPUT  as i  "
 			+ "where ip.INPUT_ID  = i.ID  "
@@ -21,6 +23,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 			+ "and i.date > '2020-05-01' "
 			+ "and i.date < '2020-05-31'", nativeQuery = true)
 	QuantityInput quantityInput(Integer ID_PROD);
+	
 	
 	@Query(value = "SELECT SUM(ep.QTD_ITENS) as QtdSaida "
 			+ "FROM TB_INPUTPRODUCT as ep,  TB_INPUT  as e  "
@@ -31,7 +34,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 	QuantityExit quantityExit(Integer ID_PROD);
 	
 	
-	@Query(value = "select pr.name, i.provider_id from tb_provider as pr, tb_input as i, tb_inputproduct as ip, tb_product as p where p.id = ip.product_id and i.id = ip.input_id and pr.id = i.provider_id and p.id = :ID_PROD", nativeQuery = true)
-	List<Providers> providers(Long ID_PROD);
+	@Query(value = "select pr.name, i.provider_id, pr.tempo from tb_provider as pr, tb_input as i, tb_inputproduct as ip, tb_product as p where p.id = ip.product_id and i.id = ip.input_id and pr.id = i.provider_id and p.id = :ID_PROD", nativeQuery = true)
+	List<Providers> providers(Integer ID_PROD);
 	
 }
