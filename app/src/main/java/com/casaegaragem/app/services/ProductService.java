@@ -18,23 +18,15 @@ public class ProductService {
 	@Autowired
 	private ProductRepository repository;
 	
-	@Autowired
-	private InputRepository inputRepository;
-	
-	@Autowired
-	private InputProductRepository inputProductRepository;
-
 	@Transactional(readOnly = true)
 	public Page<ProductDTO> findAllPaged(PageRequest pageRequest) {
 		Page<Product> list = repository.findAll(pageRequest); 
 		
-		Integer quantity = repository.quantityInput(1).getQtdEntrada();
-		Integer quantity2 = repository.quantityExit(1).getQtdSaida();
 			
 		return list.map( x -> new ProductDTO(x, repository.providers(x.getId()), 
-						1 , 1 
-						
-								));
+				repository.quantityInput(x.getId()).getQtdEntrada(), 
+				repository.quantityExit(x.getId()).getQtdSaida() 
+				));
 	}
 	
 	

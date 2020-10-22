@@ -10,12 +10,19 @@ import {RecordResponse} from "./types";
 function Home({ content }: RecordResponse) {
   
    const [modalIsOpen, setIsOpen] = useState(false);
+   const [dataInicial, setDataInicial] = useState('');
+   const [fabrica, setFabrica] = useState('');
+
    function openModal() {
      setIsOpen(true);
   }
 
   function closeModal() {
     setIsOpen(false);
+  }
+
+  function action() {
+    console.log()
   }
 
   return (
@@ -37,10 +44,10 @@ function Home({ content }: RecordResponse) {
       <HeaderBody>
         <Pesquisa placeholder="PRODUTO" />
         <Pesquisa placeholder="FORNECEDOR" />
-        <Pesquisa placeholder="FÁBRICA" />
+        <Pesquisa placeholder="FÁBRICA" value={fabrica} onChange={ (text) => setFabrica(text)/>
+        <Data type="date" value={dataInicial} onChange={ (text) => setDataInicial(text)} />
         <Data type="date" />
-        <Data type="date" />
-        <Botao>Pesquisar</Botao>
+        <Botao onClick={action}>Pesquisar</Botao>
         <Botao onClick={openModal}>Exportar</Botao>
       </HeaderBody>
     </>
