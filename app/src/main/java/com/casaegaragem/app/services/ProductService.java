@@ -8,8 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.casaegaragem.app.dto.ProductDTO;
 import com.casaegaragem.app.entities.Product;
-import com.casaegaragem.app.repositories.InputProductRepository;
-import com.casaegaragem.app.repositories.InputRepository;
 import com.casaegaragem.app.repositories.ProductRepository;
 
 @Service
@@ -22,12 +20,15 @@ public class ProductService {
 	public Page<ProductDTO> findAllPaged(PageRequest pageRequest) {
 		Page<Product> list = repository.findAll(pageRequest); 
 		
-			
+		Integer quantity = repository.quantityYear(1, "2020-01-01", "2020-12-12").getQtdYear();
+				
+		System.out.println("Quantidade por data:" + quantity);
+		
 		return list.map( x -> new ProductDTO(x, repository.providers(x.getId()), 
 				repository.quantityInput(x.getId()).getQtdEntrada(), 
 				repository.quantityExit(x.getId()).getQtdSaida() 
 				));
 	}
 	
-	
+		
 }

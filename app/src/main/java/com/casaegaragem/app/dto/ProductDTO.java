@@ -19,14 +19,12 @@ public class ProductDTO implements Serializable {
 	private String uncompra;
 	private Integer quantidadecx;
 	private Integer quantidade;
-	private Integer qtdEntrada;
-	private Integer qtdSaida;
-	private Integer giro = 2;
-	private Integer estoque_min = 15;
-	private Integer estoque_max = 16;
-	private Integer media_anual = 17;
-	private Integer media_mensal = 18;
-	private Integer media_venda = 19;
+	private Integer giro = 0;
+	private Integer estoque_min = 0;
+	private Integer estoque_max = 0;
+	private Integer media_anual = 0;
+	private Integer media_mensal = 0;
+	private Integer media_venda = 0;
 	private Manufacturer manufacture;
 	private List<ProviderDTO> providers = new ArrayList<>();
 		
@@ -65,9 +63,19 @@ public class ProductDTO implements Serializable {
 	
 	public ProductDTO(Product entity, List<Providers> providers, Integer qtdEntrada, Integer qtdSaida) {
 		this(entity);
+		Integer frequencia;
+		Integer reposicao;
 		providers.forEach(prov -> this.providers.add(new ProviderDTO(prov.getProvider_id(), prov.getName(), prov.getTempo())));
-		this.qtdEntrada = qtdEntrada;
-		this.qtdSaida = qtdSaida;
+		if ((providers.size() != 0) && (qtdEntrada != 0))
+		{
+			this.estoque_min = ((qtdSaida)/30)*providers.get(0).getTempo();
+			frequencia = ((qtdEntrada)/30);
+			reposicao = ((qtdSaida/30)/frequencia);
+			this.estoque_max = (reposicao + this.estoque_min);
+			this.media_venda = (qtdSaida/30);
+		}
+		this.giro = qtdSaida;
+		this.media_anual = qtdEntrada;
 	}
 
 	public Integer getId() {
@@ -135,7 +143,7 @@ public class ProductDTO implements Serializable {
 	}
 	
 	public Integer getGiro() {
-		return giro * quantidade;
+		return giro;
 	}
 
 	public Integer getEstoque_min() {

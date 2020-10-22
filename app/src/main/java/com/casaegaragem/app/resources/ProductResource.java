@@ -33,4 +33,29 @@ public class ProductResource {
 		Page<ProductDTO> list = service.findAllPaged(pageRequest);	
 		return ResponseEntity.ok().body(list);
 	}
+	
+	@GetMapping("/{name}")
+	public ResponseEntity<Page<ProductDTO>> findByName(
+			@RequestParam(value = "page", defaultValue = "0") Integer page,
+			@RequestParam(value = "linesPerPage", defaultValue = "6") Integer linesPerPage,
+			@RequestParam(value = "direction", defaultValue = "ASC") String direction,
+			@RequestParam(value = "orderBy", defaultValue = "descricao") String orderBy
+			) {
+		
+		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
+		
+		Page<ProductDTO> list = service.findAllPaged(pageRequest);	
+		return ResponseEntity.ok().body(list);
+	}
+	/*
+	@GetMapping("/{id}")
+	public ResponseEntity<Carrinho> listarPorId(@PathVariable Integer id) throws CarrinhoNotFoundException {
+		Carrinho carrinho = carrinhoService.listarPorId(id);
+
+		if (carrinho != null) {
+			return ResponseEntity.ok(carrinho);
+		}
+		return new ResponseEntity<Carrinho>(HttpStatus.NOT_FOUND);
+
+	}*/
 }
