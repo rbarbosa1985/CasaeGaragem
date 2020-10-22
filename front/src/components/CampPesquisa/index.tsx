@@ -22,7 +22,10 @@ function Home({ content }: RecordResponse) {
   }
 
   function action() {
-    console.log()
+    var dataIni = (document.getElementById("DataIni") as HTMLInputElement).value;
+    var dataFin = (document.getElementById("DataFin") as HTMLInputElement).value;
+    console.log(dataIni)
+    console.log(dataFin)
   }
 
   return (
@@ -44,9 +47,9 @@ function Home({ content }: RecordResponse) {
       <HeaderBody>
         <Pesquisa placeholder="PRODUTO" />
         <Pesquisa placeholder="FORNECEDOR" />
-        <Pesquisa placeholder="FÁBRICA" value={fabrica} onChange={ (text) => setFabrica(text)/>
-        <Data type="date" value={dataInicial} onChange={ (text) => setDataInicial(text)} />
-        <Data type="date" />
+        <Pesquisa placeholder="FÁBRICA" />
+        <Data type="date" id="DataIni" required/>
+        <Data type="date" id="DataFin" required/>
         <Botao onClick={action}>Pesquisar</Botao>
         <Botao onClick={openModal}>Exportar</Botao>
       </HeaderBody>

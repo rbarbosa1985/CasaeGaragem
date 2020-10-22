@@ -25,8 +25,7 @@ export const Body = styled.div`
 
 export const styles = StyleSheet.create({
   pdfviewer: {
-    marginTop: "20px",
     width: "80%",
-    height: "800px",
+    height: 500,
   },
 });
