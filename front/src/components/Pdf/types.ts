@@ -1,6 +1,5 @@
 export type RecordResponse = {
-  content: Products[];
-  totalPages: number;
+  content?: Products[];
 };
 
 export type Products = {
@@ -28,12 +27,4 @@ export type Products = {
 export type Providers = {
   id: number;
   name: string;
-}
-
-export type Filters = {
-  product : string;
-  provider: string;
-  manufacture: string;
-  date: string;
-  date2: string;
 }

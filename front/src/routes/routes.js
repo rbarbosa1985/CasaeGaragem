@@ -10,7 +10,7 @@ function Routes() {
     <BrowserRouter>
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/pdf" component={Pdf} />
+        <Route path="/:dados" component={Pdf} />
         <Route path="/excel" component={Excel} />
       </Switch>
     </BrowserRouter>

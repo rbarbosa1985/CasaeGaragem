@@ -29,11 +29,3 @@ export type Providers = {
   id: number;
   name: string;
 }
-
-export type Filters = {
-  product : string;
-  provider: string;
-  manufacture: string;
-  date: string;
-  date2: string;
-}

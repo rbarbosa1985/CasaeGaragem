@@ -2,6 +2,12 @@ export type RecordResponse = {
   content?: Products[];
 };
 
+export type Props = {
+  goToFilters: Function;
+  //content?: Products[];
+  dados: string;
+};
+
 export type Products = {
   id: number;
   codigoBarras: number;
@@ -28,3 +34,12 @@ export type Providers = {
   id: number;
   name: string;
 }
+
+export type Filters = {
+  product: string;
+  manufacture: string;
+  provider: string;
+  date: string;
+  date2: string;
+}
+

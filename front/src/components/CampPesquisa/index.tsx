@@ -1,40 +1,53 @@
-import React, { useState } from "react";
+import React, { useState, ChangeEvent } from "react";
 import { HeaderBody, Pesquisa, Data, Botao, customStyles } from "./style";
 import Modal from "react-modal";
 import Excel from "../../pages/Excel/index";
 import { Link } from "react-router-dom";
-import { RecordResponse } from "./types";
+import { Filters, Props, Products} from "./types";
+import api from "../../services/api";
 
-function Home({ content }: RecordResponse) {
-  const [modalIsOpen, setIsOpen] = useState(false);
-  const [dataInicial, setDataInicial] = useState("");
-  const [fabrica, setFabrica] = useState("");
 
-  function openModal() {
-    setIsOpen(true);
+
+function Home({ goToFilters, dados}: Props ) {
+  
+   const [modalIsOpen, setIsOpen] = useState(false);
+
+   const [model, setModel] = useState<Filters>({
+    product: '',
+    manufacture: '',
+    provider: '',
+    date: '',
+    date2: '',
+  });
+
+  function updateModel(e: ChangeEvent<HTMLInputElement>) {
+    setModel({
+        ...model,
+        [e.target.name]: e.target.value
+    })
+}
+
+   function openModal() {
+     setIsOpen(true);
+     Modal.setAppElement('body');
+     excel();
   }
 
   function closeModal() {
     setIsOpen(false);
   }
 
-  function action() {
-    var produto = (document.getElementById("Produto") as HTMLInputElement)
-      .value;
-    var fornecedor = (document.getElementById("Fornecedor") as HTMLInputElement)
-      .value;
-    var fabrica = (document.getElementById("Fabrica") as HTMLInputElement)
-      .value;
-    var dataIni = (document.getElementById("DataIni") as HTMLInputElement)
-      .value;
-    var dataFin = (document.getElementById("DataFin") as HTMLInputElement)
-      .value;
+  function action(e: ChangeEvent<HTMLInputElement>) {
+  
+    goToFilters(model);
+  }
 
-    console.log(produto);
-    console.log(fornecedor);
-    console.log(fabrica);
-    console.log(dataIni);
-    console.log(dataFin);
+  const [records, setRecords] = useState<Products[]>();
+
+  function excel(){
+    api.get(`${dados}`).then((response) => {
+      setRecords(response.data);
+    });
   }
 
   return (
@@ -46,20 +59,20 @@ function Home({ content }: RecordResponse) {
         contentLabel="Exportar"
       >
         <div style={{ display: "flex", flexDirection: "row" }}>
-          <Excel content={content} />
-          <Link to="pdf">
+          <Excel content={records}/>
+          <Link to={`/${dados}`} >
             <Botao> PDF </Botao>
           </Link>
         </div>
       </Modal>
 
       <HeaderBody>
-        <Pesquisa id="Produto" placeholder="PRODUTO" />
-        <Pesquisa id="Fornecedor" placeholder="FORNECEDOR" />
-        <Pesquisa id="Fabrica" placeholder="FÁBRICA" />
-        <Data id="DataIni" type="date" />
-        <Data id="DataFin" type="date" />
-        <Botao onClick={action}>Pesquisar</Botao>
+        <Pesquisa placeholder="PRODUTO" name="product" value={model.product} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} />
+        <Pesquisa placeholder="FORNECEDOR" name="provider" value={model.provider} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)}/>
+        <Pesquisa placeholder="FÁBRICA" name="manufacture" value={model.manufacture} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)}/>
+        <Data type="date" name="date" id="date" value={model.date} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)}/>
+        <Data type="date" name="date2" id="date2"  value={model.date2} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} />
+        <Botao onClick={action} >Pesquisar</Botao>
         <Botao onClick={openModal}>Exportar</Botao>
       </HeaderBody>
     </>

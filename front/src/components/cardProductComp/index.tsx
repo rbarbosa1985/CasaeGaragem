@@ -21,6 +21,9 @@ import {
 } from "./style";
 
 function CardProductComp({ content }: RecordResponse) {
+
+  
+
   return (
     <>
       <ContBody>

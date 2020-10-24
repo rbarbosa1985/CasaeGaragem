@@ -90,22 +90,22 @@ export const InfCont = styled.div`
   padding: 5px;
 `;
 
-export const TitleHeader = styled.text`
+export const TitleHeader = styled.div`
   font-size: 22px;
   font-weight: bold;
   margin-right: 4px;
 `;
 
-export const TextHeader = styled.text`
+export const TextHeader = styled.div`
   font-size: 22px;
 `;
 
-export const Title = styled.text`
+export const Title = styled.div`
   font-size: 18px;
   font-weight: bold;
   margin-right: 4px;
 `;
 
-export const Text = styled.text`
+export const Text = styled.div`
   font-size: 18px;
 `;

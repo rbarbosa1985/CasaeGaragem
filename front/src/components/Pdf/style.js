@@ -15,5 +15,6 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     border: "2px solid",
     borderWidth: 1,
+    marginBottom: 9
   },
 });
