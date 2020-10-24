@@ -23,20 +23,6 @@ public class ProductResource {
 	@Autowired
 	private ProductService service;
 	
-	@GetMapping
-	public ResponseEntity<Page<ProductDTO>> findAll(
-			@RequestParam(value = "page", defaultValue = "0") Integer page,
-			@RequestParam(value = "linesPerPage", defaultValue = "5") Integer linesPerPage,
-			@RequestParam(value = "direction", defaultValue = "ASC") String direction,
-			@RequestParam(value = "orderBy", defaultValue = "descricao") String orderBy
-			) {
-		
-		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
-		
-		Page<ProductDTO> list = service.findAllPaged(pageRequest);	
-		return ResponseEntity.ok().body(list);
-	}
-	
 	@GetMapping("/pdf/{product}&{provider}&{manufacture}&{date}&{date2}")
 	public ResponseEntity<List<ProductDTO>> filtersPdf(
 			@PathVariable("product") String product,

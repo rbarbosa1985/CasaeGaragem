@@ -20,31 +20,9 @@ public class ProductService {
 	private ProductRepository repository;
 	
 	@Transactional(readOnly = true)
-	public Page<ProductDTO> findAllPaged(PageRequest pageRequest) {
-		//Page<Product> list = repository.findAll(pageRequest); 
-		
-		//Integer quantity = repository.quantityYear(1, "2020-01-01", "2020-12-12").getQtdYear();
-				
-		//System.out.println("Quantidade por data:" + quantity);
-		
-		/*return list.map( x -> new ProductDTO(x, repository.providers(x.getId()), 
-				repository.quantityInput(x.getId(),date, date2).getQtdEntrada(), 
-				repository.quantityExit(x.getId(),date, date2).getQtdSaida() 
-				));*/
-		return null;
-	}
-	
-	@Transactional(readOnly = true)
 	public Page<ProductDTO> findByProd(String provider, String product, String manufacture, String date, String date2, PageRequest pageRequest) {
 		Page<Product> list = repository.filters(provider, product, manufacture, pageRequest); 
 	
-/*		List<ProductDTO> list2 = new ArrayList<>();
-		
-		list.forEach(x -> list2.add(new ProductDTO(x, repository.providers(x.getId()), 
-				repository.quantityInput(x.getId(), date, date2).getQtdEntrada(), 
-				repository.quantityExit(x.getId(), date, date2).getQtdSaida() 
-				)));*/
-		
 		return list.map( x -> new ProductDTO(x, repository.providers(x.getId()), 
 				repository.quantityInput(x.getId(),date, date2).getQtdEntrada(), 
 				repository.quantityExit(x.getId(),date, date2).getQtdSaida() 
