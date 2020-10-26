@@ -13,17 +13,17 @@ const MyDocument = (content: RecordResponse) => (
           <Text>CODIGO: {product.id} </Text>
           <Text>DESCRICAO: </Text>
           <Text>{product.descricao}</Text>
-          <Text>FABRICANTE: {product.manufacture.name}</Text>
+          <Text>FABRICANTE: {product.manufacture}</Text>
           <Text>QTD ESTOQUE:</Text>
           <Text>{product.quantidade}</Text>
         </View>
         <View style={styles.section}>
           <Text>FORNCEDOR 01:</Text>
-          <Text>{product?.providers[0]?.name}</Text>
+          <Text>{product?.provider1}</Text>
           <Text>FORNECEDOR 02:</Text>
-          <Text>{product?.providers[1]?.name}</Text>
+          <Text>{product?.provider2}</Text>
           <Text>FORNECEDOR 3:</Text>
-          <Text>{product?.providers[2]?.name}</Text>
+          <Text>{product?.provider3}</Text>
         </View>
         <View style={styles.section}>
     <Text>GIRO DE ESTOQUE: {product.giro}</Text>

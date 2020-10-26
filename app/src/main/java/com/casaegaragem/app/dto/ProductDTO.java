@@ -73,9 +73,11 @@ public class ProductDTO implements Serializable {
 			reposicao = ((qtdSaida/30)/frequencia);
 			this.estoque_max = (reposicao + this.estoque_min);
 			this.media_venda = (qtdSaida/30);
+			this.giro = (estoque_min)/60;
+			this.media_anual = (estoque_max)/12;
+			this.media_mensal = (estoque_min)/30;
 		}
-		this.giro = qtdSaida;
-		this.media_anual = qtdEntrada;
+		
 	}
 
 	public Integer getId() {
@@ -166,22 +168,26 @@ public class ProductDTO implements Serializable {
 		return media_venda;
 	}
 	
-	public Manufacturer getManufacture() {
-		return manufacture;
+	public String getManufacture() {
+		return manufacture.getName();
 	}
 
 	public void setManufacture(Manufacturer manufacture) {
 		this.manufacture = manufacture;
 	}
 
-	public List<ProviderDTO> getProviders() {
-		return providers;
+	public String getProvider1() {
+		return providers.get(0).getName();
 	}
-
-	public void setProviders(List<ProviderDTO> providers) {
-		this.providers = providers;
+	
+	public String getProvider2() {
+		return providers.get(1).getName();
 	}
-
+	
+	public String getProvider3() {
+		return providers.get(2).getName();
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

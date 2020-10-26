@@ -40,7 +40,7 @@ function CardProductComp({ content }: RecordResponse) {
               </Descricao>
               <Fabricante>
                 <TitleHeader>Fabricante:</TitleHeader>
-                <TextHeader>{product?.manufacture.name}</TextHeader>
+                <TextHeader>{product?.manufacture}</TextHeader>
               </Fabricante>
               <Estoque>
                 <TitleHeader>Estoque:</TitleHeader>
@@ -51,15 +51,15 @@ function CardProductComp({ content }: RecordResponse) {
               <Fornecedor>
                 <InfFornecedor>
                   <Title>Fornecedor 01:</Title>
-                  <Text>{product?.providers[0]?.name}</Text>
+                  <Text>{product?.provider1}</Text>
                 </InfFornecedor>
                 <InfFornecedor>
                   <Title>Fornecedor 02:</Title>
-                  <Text>{product?.providers[1]?.name}</Text>
+                  <Text>{product?.provider2}</Text>
                 </InfFornecedor>
                 <InfFornecedor>
                   <Title>Fornecedor 03:</Title>
-                  <Text>{product?.providers[2]?.name}</Text>
+                  <Text>{product?.provider3}</Text>
                 </InfFornecedor>
               </Fornecedor>
               <Cont>

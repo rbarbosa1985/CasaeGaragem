@@ -30,7 +30,7 @@ const Home = () => {
   useEffect(() => {
    
     function getDados() {
-    api.get(`/products/fiters/${product}&${provider}&${manufacture}&${date}&${date2}?linesPerPage=5&page=${activePage}`).then((response) => {
+    api.get(`/products/fiters/${product}&${provider}&${manufacture}&${date}&${date2}?linesPerPage=4&page=${activePage}`).then((response) => {
       setDados(`products/pdf/${product}&${provider}&${manufacture}&${date}&${date2}`);
       setRecords(response.data);
     });

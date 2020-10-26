@@ -7,17 +7,17 @@ const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
 const ExcelColumn = ReactExport.ExcelFile.ExcelColumn;
 
 function Excel(records)  {
-
+  console.log(records);
   return (
     <ExcelFile element={<Botao>EXCEL</Botao>}>
       <ExcelSheet data={records.content} name="Produtos">
         <ExcelColumn label="Id" value="id" />
         <ExcelColumn label="Descricao" value="descricao" />
-        <ExcelColumn label="Fabricante" value="manufacture.name" />
+        <ExcelColumn label="Fabricante" value="manufacture" />
         <ExcelColumn label="Estoque" value="quantidade" />
-        <ExcelColumn label="Fornecedor 01" value="providers[0].name" />
-        <ExcelColumn label="Fornecedor 02" value="providers[1].name" />
-        <ExcelColumn label="Fornecedor 03" value="providers[2].name" />
+        <ExcelColumn label="Fornecedor 01" value="provider1" />
+        <ExcelColumn label="Fornecedor 02" value="provider2" />
+        <ExcelColumn label="Fornecedor 03" value="provider3" />
         <ExcelColumn label="Giro de estoque" value="giro" />
         <ExcelColumn label="Estoque minimo" value="estoque_min" />
         <ExcelColumn label="Estoque maximo" value="estoque_max" />

@@ -18,11 +18,10 @@ export type Products = {
   media_anual: number,
   media_mensal: number,
   media_venda: number,
-  manufacture: {
-      id: number,
-      name: string
-  }
-  providers: Providers[];
+  manufacture:  string,
+  provider1: string,
+  provider2: string,
+  provider3: string,
 };
 
 export type Providers = {

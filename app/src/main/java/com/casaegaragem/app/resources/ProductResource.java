@@ -61,7 +61,7 @@ public class ProductResource {
 			@PathVariable("date") String date,
 			@PathVariable("date2") String date2,
 			@RequestParam(value = "page", defaultValue = "0") Integer page,
-			@RequestParam(value = "linesPerPage", defaultValue = "5") Integer linesPerPage,
+			@RequestParam(value = "linesPerPage", defaultValue = "4") Integer linesPerPage,
 			@RequestParam(value = "direction", defaultValue = "ASC") String direction,
 			@RequestParam(value = "orderBy", defaultValue = "id") String orderBy
 			) {
