@@ -3,34 +3,31 @@ import { HeaderBody, Pesquisa, Data, Botao, customStyles } from "./style";
 import Modal from "react-modal";
 import Excel from "../../pages/Excel/index";
 import { Link } from "react-router-dom";
-import { Filters, Props, Products} from "./types";
+import { Filters, Props, Products } from "./types";
 import api from "../../services/api";
 
+function Home({ goToFilters, dados }: Props) {
+  const [modalIsOpen, setIsOpen] = useState(false);
 
-
-function Home({ goToFilters, dados}: Props ) {
-  
-   const [modalIsOpen, setIsOpen] = useState(false);
-
-   const [model, setModel] = useState<Filters>({
-    product: '',
-    manufacture: '',
-    provider: '',
-    date: '',
-    date2: '',
+  const [model, setModel] = useState<Filters>({
+    product: "",
+    manufacture: "",
+    provider: "",
+    date: "",
+    date2: "",
   });
 
   function updateModel(e: ChangeEvent<HTMLInputElement>) {
     setModel({
-        ...model,
-        [e.target.name]: e.target.value
-    })
-}
+      ...model,
+      [e.target.name]: e.target.value,
+    });
+  }
 
-   function openModal() {
-     setIsOpen(true);
-     Modal.setAppElement('body');
-     excel();
+  function openModal() {
+    setIsOpen(true);
+    Modal.setAppElement("body");
+    excel();
   }
 
   function closeModal() {
@@ -38,13 +35,12 @@ function Home({ goToFilters, dados}: Props ) {
   }
 
   function action(e: ChangeEvent<HTMLInputElement>) {
-  
     goToFilters(model);
   }
 
   const [records, setRecords] = useState<Products[]>();
 
-  function excel(){
+  function excel() {
     api.get(`${dados}`).then((response) => {
       setRecords(response.data);
     });
@@ -59,21 +55,52 @@ function Home({ goToFilters, dados}: Props ) {
         contentLabel="Exportar"
       >
         <div style={{ display: "flex", flexDirection: "row" }}>
-          <Excel content={records}/>
-          <Link to={`/${dados}`} >
+          <Excel content={records} />
+          <Link to={`/${dados}`}>
             <Botao> PDF </Botao>
           </Link>
         </div>
       </Modal>
 
       <HeaderBody>
-        <Pesquisa placeholder="PRODUTO" name="product" value={model.product} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} />
-        <Pesquisa placeholder="FORNECEDOR" name="provider" value={model.provider} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)}/>
-        <Pesquisa placeholder="FÁBRICA" name="manufacture" value={model.manufacture} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)}/>
-        <Data type="date" name="date" id="date" value={model.date} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)}/>
-        <Data type="date" name="date2" id="date2"  value={model.date2} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} />
-        <Botao onClick={action} >Pesquisar</Botao>
-        <Botao onClick={openModal}>Exportar</Botao>
+        {/* <div> */}
+          <Pesquisa
+            placeholder="PRODUTO"
+            name="product"
+            value={model.product}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)}
+          />
+          <Pesquisa
+            placeholder="FORNECEDOR"
+            name="provider"
+            value={model.provider}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)}
+          />
+          <Pesquisa
+            placeholder="FÁBRICA"
+            name="manufacture"
+            value={model.manufacture}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)}
+          />
+        {/* </div>
+        <div> */}
+          <Data
+            type="date"
+            name="date"
+            id="date"
+            value={model.date}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)}
+          />
+          <Data
+            type="date"
+            name="date2"
+            id="date2"
+            value={model.date2}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)}
+          />
+          <Botao onClick={action}>Pesquisar</Botao>
+          <Botao onClick={openModal}>Exportar</Botao>
+        {/* </div> */}
       </HeaderBody>
     </>
   );

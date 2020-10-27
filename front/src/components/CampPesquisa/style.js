@@ -10,6 +10,10 @@ export const HeaderBody = styled.div`
   background-color: var(--color-black);
   border-radius: 0.5vw;
   align-items: center;
+  /* @media (max-width: 1200px) {
+    flex-direction: column;
+    display: flex;
+  } */
 `;
 
 export const Pesquisa = styled.input`
@@ -20,15 +24,6 @@ export const Pesquisa = styled.input`
   height: 1.75vw;
   border: none;
   border-radius: 0.35vw;
-  /* @media (max-width: 1284px) {
-    padding: 2px;
-    font-size: 12px;
-    height: 25px;
-  }
-  @media (max-width: 1088px) {
-    padding: 1px;
-    font-size: 9px;
-  } */
 `;
 
 export const Data = styled.input`
@@ -39,15 +34,6 @@ export const Data = styled.input`
   height: 1.75vw;
   border: none;
   border-radius: 0.35vw;
-  /* @media (max-width: 1284px) {
-    padding: 2px;
-    font-size: 12px;
-    height: 25px;
-  }
-  @media (max-width: 1088px) {
-    padding: 1px;
-    font-size: 9px;
-  } */
 `;
 
 export const Botao = styled.button`
@@ -60,18 +46,10 @@ export const Botao = styled.button`
   color: var(--color-black);
   padding: 0.35vw;
   font-size: 1vw;
-  height: 2.25vw;
+  height: 2.5vw;
   border: none;
   border-radius: 0.35vw;
   background-color: var(--color-yellow);
-  /* @media (max-width: 1284px) {
-    padding: 2px;
-    font-size: 12px;
-    height: 30px;
-  }
-  @media (max-width: 1088px) {
-    padding: 1px;
-  } */
   &:hover {
     background-color: var(--color-yellow2);
     transition: 0.3s all ease-out;
