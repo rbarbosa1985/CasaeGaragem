@@ -17,4 +17,8 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     marginBottom: 9
   },
+  text: {
+    maxWidth: "300ch",
+    maxLines: 1,
+  },
 });

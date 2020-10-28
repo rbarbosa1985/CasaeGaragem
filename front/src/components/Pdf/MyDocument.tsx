@@ -2,6 +2,7 @@ import React from "react";
 import { Page, Text, View, Document } from "@react-pdf/renderer";
 import { styles } from "./style";
 import {RecordResponse} from "./types";
+import './styles.css';
 
 // Create Document Component
 const MyDocument = (content: RecordResponse) => (
@@ -12,18 +13,18 @@ const MyDocument = (content: RecordResponse) => (
         <View style={styles.section}>
           <Text>CODIGO: {product.id} </Text>
           <Text>DESCRICAO: </Text>
-          <Text>{product.descricao}</Text>
-          <Text>FABRICANTE: {product.manufacture}</Text>
+          <Text style={styles.text} >{product.descricao}</Text>
+          <Text style={styles.text}>FABRICANTE: {product.manufacture}</Text>
           <Text>QTD ESTOQUE:</Text>
           <Text>{product.quantidade}</Text>
         </View>
         <View style={styles.section}>
           <Text>FORNCEDOR 01:</Text>
-          <Text>{product?.provider1}</Text>
+          <Text style={styles.text}>{product?.provider1}</Text>
           <Text>FORNECEDOR 02:</Text>
-          <Text>{product?.provider2}</Text>
+          <Text style={styles.text}>{product?.provider2}</Text>
           <Text>FORNECEDOR 3:</Text>
-          <Text>{product?.provider3}</Text>
+          <Text style={styles.text}>{product?.provider3}</Text>
         </View>
         <View style={styles.section}>
     <Text>GIRO DE ESTOQUE: {product.giro}</Text>

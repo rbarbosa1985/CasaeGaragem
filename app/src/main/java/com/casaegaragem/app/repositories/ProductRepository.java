@@ -46,7 +46,8 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 			+ "where p.id = ip.product_id "
 			+ "and i.id = ip.input_id "
 			+ "and pr.id = i.provider_id "
-			+ "and p.id = :ID_PROD", nativeQuery = true)
+			+ "and p.id = :ID_PROD "
+			+ "order by i.DATE desc", nativeQuery = true)
 	List<Providers> providers(Integer ID_PROD);
 	
 	@Query(value = "SELECT P.* "

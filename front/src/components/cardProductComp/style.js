@@ -147,6 +147,12 @@ export const TextHeader = styled.div`
   font-size: 22px;
   display: flex;
   align-items: center;
+
+  max-width: 25ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
   @media (max-width: 1200px) {
     font-size: 20px;
   }
@@ -175,14 +181,21 @@ export const Title = styled.div`
 `;
 
 export const Text = styled.div`
+max-width: 40ch;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
   font-size: 18px;
   @media (max-width: 1200px) {
     font-size: 16px;
+    max-width: 20ch;
   }
   @media (max-width: 800px) {
     font-size: 14px;
+    max-width: 15ch;
   }
   @media (max-width: 650px) {
     font-size: 12px;
+    max-width: 20ch;
   }
 `;
