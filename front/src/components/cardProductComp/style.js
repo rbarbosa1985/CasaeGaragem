@@ -11,6 +11,9 @@ export const CardProduct = styled.div`
   margin-bottom: 0.5vw;
   border-radius: 0.5vw;
   background-color: var(--color-lightgray);
+  @media (max-width: 800px) {
+    margin-bottom: 1.5vw;
+  }
 `;
 
 export const HeaderCard = styled.div`

@@ -1,5 +1,13 @@
 import React, { useState, ChangeEvent } from "react";
-import { HeaderBody, Pesquisa, Data, Botao, customStyles } from "./style";
+import {
+  HeaderBody,
+  DivPesq,
+  DivData,
+  Pesquisa,
+  Data,
+  Botao,
+  customStyles,
+} from "./style";
 import Modal from "react-modal";
 import Excel from "../../pages/Excel/index";
 import { Link } from "react-router-dom";
@@ -63,7 +71,7 @@ function Home({ goToFilters, dados }: Props) {
       </Modal>
 
       <HeaderBody>
-        {/* <div> */}
+        <DivPesq>
           <Pesquisa
             placeholder="PRODUTO"
             name="product"
@@ -82,8 +90,8 @@ function Home({ goToFilters, dados }: Props) {
             value={model.manufacture}
             onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)}
           />
-        {/* </div>
-        <div> */}
+        </DivPesq>
+        <DivData>
           <Data
             type="date"
             name="date"
@@ -100,7 +108,7 @@ function Home({ goToFilters, dados }: Props) {
           />
           <Botao onClick={action}>Pesquisar</Botao>
           <Botao onClick={openModal}>Exportar</Botao>
-        {/* </div> */}
+        </DivData>
       </HeaderBody>
     </>
   );
