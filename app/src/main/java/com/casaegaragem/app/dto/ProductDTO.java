@@ -73,6 +73,7 @@ public class ProductDTO implements Serializable {
 		System.out.println("Produto: " + entity.getId() + " Tempo: " + providers.get(0).getTempo());
 		System.out.println("Produto: " + entity.getId() + " Frequencia: " + frequencia);
 		
+		
 		providers.forEach(prov -> this.providers.add(new ProviderDTO(prov.getProvider_id(), prov.getName(), prov.getTempo())));
 		if ((providers.size() != 0) && (qtdEntrada != 0) && (providers.get(0).getTempo() != 0))
 		{
