@@ -78,7 +78,7 @@ export const Cont = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  @media (max-width: 1024px) {
+  @media (max-width: 768px) {
     flex-direction: row;
   }
 `;
@@ -87,7 +87,7 @@ export const ContRow = styled.div`
   flex: 1;
   display: flex;
   flex-direction: row;
-  @media (max-width: 1024px) {
+  @media (max-width: 768px) {
     flex-direction: column;
   }
 `;
@@ -110,8 +110,11 @@ export const TitleHeader = styled.div`
   @media (max-width: 768px) {
     font-size: 18px;
   }
-  @media (max-width: 375px) {
+  @media (max-width: 425px) {
     font-size: 16px;
+  }
+  @media (max-width: 360px) {
+    font-size: 14px;
   }
 `;
 
@@ -119,7 +122,7 @@ export const TextHeader = styled.div`
   font-size: 22px;
   display: flex;
   align-items: center;
-  max-width: 36vw;
+  max-width: 35vw;
   overflow: hidden;
   white-space: nowrap;
   @media (max-width: 1024px) {
@@ -128,8 +131,13 @@ export const TextHeader = styled.div`
   @media (max-width: 768px) {
     font-size: 18px;
   }
-  @media (max-width: 375px) {
+  @media (max-width: 425px) {
+    max-width: 33vw;
     font-size: 16px;
+  }
+  @media (max-width: 360px) {
+    max-width: 33vw;
+    font-size: 14px;
   }
 `;
 
@@ -144,14 +152,17 @@ export const Title = styled.div`
   @media (max-width: 768px) {
     font-size: 14px;
   }
-  @media (max-width: 375px) {
+  @media (max-width: 425px) {
     font-size: 12px;
+  }
+  @media (max-width: 360px) {
+    font-size: 10px;
   }
 `;
 
 export const Text = styled.div`
   font-size: 18px;
-  max-width: 29vw;
+  max-width: 28vw;
   overflow: hidden;
   white-space: nowrap;
   @media (max-width: 1024px) {
@@ -160,7 +171,11 @@ export const Text = styled.div`
   @media (max-width: 768px) {
     font-size: 14px;
   }
-  @media (max-width: 375px) {
+  @media (max-width: 425px) {
+    max-width: 26vw;
     font-size: 12px;
+  }
+  @media (max-width: 360px) {
+    font-size: 10px;
   }
 `;
