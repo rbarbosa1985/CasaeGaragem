@@ -21,8 +21,8 @@ import {
 } from "./style";
 
 function CardProductComp({ content }: RecordResponse) {
-
-  
+  var data = new Date();
+  var ano4 = data.getFullYear() -1;
 
   return (
     <>
@@ -79,7 +79,7 @@ function CardProductComp({ content }: RecordResponse) {
                 </ContRow>
                 <ContRow>
                   <InfCont>
-                    <Title>Média de venda anual:</Title>
+                    <Title>Média de venda {ano4}:</Title>
                     <Text>{product?.media_anual.toFixed(1)}</Text>
                   </InfCont>
                   <InfCont>
@@ -87,7 +87,7 @@ function CardProductComp({ content }: RecordResponse) {
                     <Text>{product?.media_mensal.toFixed(1)}</Text>
                   </InfCont>
                   <InfCont>
-                    <Title>Média de compra:</Title>
+                    <Title>Média de venda diária:</Title>
                     <Text>{product?.media_venda.toFixed(1)}</Text>
                   </InfCont>
                 </ContRow>
