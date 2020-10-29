@@ -21,9 +21,9 @@ function Excel(records)  {
         <ExcelColumn label="Giro de estoque" value="giro" />
         <ExcelColumn label="Estoque minimo" value="estoque_min" />
         <ExcelColumn label="Estoque maximo" value="estoque_max" />
-        <ExcelColumn label="Media de venda anual" value="media_anual" />
+        <ExcelColumn label="Media de venda 2019" value="media_anual" />
         <ExcelColumn label="Media de venda mensal" value="media_mensal" />
-        <ExcelColumn label="Media de compra" value="media_venda" />
+        <ExcelColumn label="Media de venda diaria" value="media_venda" />
       </ExcelSheet>
     </ExcelFile>
   );

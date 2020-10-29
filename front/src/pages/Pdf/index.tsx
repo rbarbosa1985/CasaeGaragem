@@ -5,10 +5,10 @@ import { Header, Logo, Body, styles } from "./style";
 import MyDocument from "../../components/Pdf/MyDocument";
 import { PDFViewer } from "@react-pdf/renderer";
 import { Products } from "./types";
-import {useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Pdf() {
-
   const dados = useHistory();
 
   const [records, setRecords] = useState<Products[]>();
@@ -19,11 +19,14 @@ function Pdf() {
     });
   }, [dados]);
 
-
   return (
     <>
       <Header>
-        <Logo src={LogoImg} alt="logo" />
+        <Link to="/">
+          <button>
+            <Logo src={LogoImg} alt="logo" />
+          </button>
+        </Link>
       </Header>
       <Body>
         <PDFViewer style={styles.pdfviewer}>

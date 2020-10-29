@@ -285,6 +285,7 @@ INSERT INTO tb_exit (date, created_At, client_id ) VALUES (TO_TIMESTAMP('2018-02
 INSERT INTO tb_exit (date, created_At, client_id ) VALUES (TO_TIMESTAMP('2018-01-13','YYYY-MM-DD'), NOW(), 5	);
 INSERT INTO tb_exit (date, created_At, client_id ) VALUES (TO_TIMESTAMP('2018-01-14','YYYY-MM-DD'), NOW(), 6	);
 INSERT INTO tb_exit (date, created_At, client_id ) VALUES (TO_TIMESTAMP('2018-01-15','YYYY-MM-DD'), NOW(), 7	);
+INSERT INTO tb_exit (date, created_At, client_id ) VALUES (TO_TIMESTAMP('2019-12-15','YYYY-MM-DD'), NOW(), 7	);
 
 
 
@@ -6923,6 +6924,7 @@ INSERT INTO tb_exitproduct (exit_id, product_id, qtd_itens) VALUES (		97	,	15	,	
 INSERT INTO tb_exitproduct (exit_id, product_id, qtd_itens) VALUES (		98	,	15	,	4	)	;
 INSERT INTO tb_exitproduct (exit_id, product_id, qtd_itens) VALUES (		99	,	15	,	6	)	;
 INSERT INTO tb_exitproduct (exit_id, product_id, qtd_itens) VALUES (		100	,	15	,	8	)	;
+INSERT INTO tb_exitproduct (exit_id, product_id, qtd_itens) VALUES (		155	,	2	,	8	)	;
 
 
 
