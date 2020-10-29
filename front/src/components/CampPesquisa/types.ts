@@ -39,6 +39,5 @@ export type Filters = {
   manufacture: string;
   provider: string;
   date: string;
-  date2: string;
 }
 

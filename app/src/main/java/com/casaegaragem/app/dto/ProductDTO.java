@@ -19,12 +19,12 @@ public class ProductDTO implements Serializable {
 	private String uncompra;
 	private Integer quantidadecx;
 	private Integer quantidade;
-	private Integer giro = 0;
-	private Integer estoque_min = 0;
-	private Integer estoque_max = 0;
-	private Integer media_anual = 0;
-	private Integer media_mensal = 0;
-	private Integer media_venda = 0;
+	private Double giro = 0.0;
+	private Double estoque_min = 0.0;
+	private Double estoque_max = 0.0;
+	private Double media_anual = 0.0;
+	private Double media_mensal = 0.0;
+	private Double media_venda = 0.0;
 	private Manufacturer manufacture;
 	private List<ProviderDTO> providers = new ArrayList<>();
 		
@@ -61,21 +61,35 @@ public class ProductDTO implements Serializable {
 		this.manufacture = manufacturer;
 	}
 	
-	public ProductDTO(Product entity, List<Providers> providers, Integer qtdEntrada, Integer qtdSaida) {
+	public ProductDTO(Product entity, List<Providers> providers, Integer qtdEntrada, Integer qtdEntrada2 , Integer qtdSaida, Integer qtdMensal, Integer frequencia, Integer anoanterior) {
 		this(entity);
-		Integer frequencia;
-		Integer reposicao;
+		
+		Double auxiliar = 0.0;
+		
+		System.out.println("Produto: " + entity.getId() + " Entrada: " + qtdEntrada);
+		System.out.println("Produto: " + entity.getId() + " Entrada: " + qtdEntrada2);
+		System.out.println("Produto: " + entity.getId() + " Saida: " + qtdSaida);
+		System.out.println("Produto: " + entity.getId() + " Mensal: " + qtdMensal);
+		System.out.println("Produto: " + entity.getId() + " Tempo: " + providers.get(0).getTempo());
+		System.out.println("Produto: " + entity.getId() + " Frequencia: " + frequencia);
+		
 		providers.forEach(prov -> this.providers.add(new ProviderDTO(prov.getProvider_id(), prov.getName(), prov.getTempo())));
-		if ((providers.size() != 0) && (qtdEntrada != 0))
+		if ((providers.size() != 0) && (qtdEntrada != 0) && (providers.get(0).getTempo() != 0))
 		{
-			this.estoque_min = ((qtdSaida)/30)*providers.get(0).getTempo();
-			frequencia = ((qtdEntrada)/30);
-			reposicao = ((qtdSaida/30)/frequencia);
-			this.estoque_max = (reposicao + this.estoque_min);
-			this.media_venda = (qtdSaida/30);
-			this.giro = (estoque_min)/60;
-			this.media_anual = (estoque_max)/12;
-			this.media_mensal = (estoque_min)/30;
+			auxiliar = ((double) (qtdSaida))/30;
+			System.out.println("Auxiliar: " + auxiliar);
+			this.estoque_min = (auxiliar)*providers.get(0).getTempo();
+			
+			this.estoque_max = (((auxiliar)/(auxiliar/frequencia))) + this.estoque_min;
+			
+			auxiliar = 0.0;
+			
+			auxiliar = ((double)(qtdEntrada2+qtdEntrada))/2;
+			
+			this.media_venda = ((double) (qtdMensal))/90;
+			this.giro = ((double) qtdSaida)/auxiliar;
+			this.media_anual = ((double)anoanterior)/12;
+			this.media_mensal = ((double) (qtdMensal))/3;
 		}
 		
 	}
@@ -144,27 +158,27 @@ public class ProductDTO implements Serializable {
 		this.quantidade = quantidade;
 	}
 	
-	public Integer getGiro() {
+	public Double getGiro() {
 		return giro;
 	}
 
-	public Integer getEstoque_min() {
+	public Double getEstoque_min() {
 		return estoque_min;
 	}
 
-	public Integer getEstoque_max() {
+	public Double getEstoque_max() {
 		return estoque_max;
 	}
 
-	public Integer getMedia_anual() {
+	public Double getMedia_anual() {
 		return media_anual;
 	}
 
-	public Integer getMedia_mensal() {
+	public Double getMedia_mensal() {
 		return media_mensal;
 	}
 
-	public Integer getMedia_venda() {
+	public Double getMedia_venda() {
 		return media_venda;
 	}
 	

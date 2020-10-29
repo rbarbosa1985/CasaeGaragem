@@ -21,8 +21,7 @@ function Home({ goToFilters, dados }: Props) {
     product: "",
     manufacture: "",
     provider: "",
-    date: "",
-    date2: "",
+    date: ""
   });
 
   function updateModel(e: ChangeEvent<HTMLInputElement>) {
@@ -97,13 +96,6 @@ function Home({ goToFilters, dados }: Props) {
             name="date"
             id="date"
             value={model.date}
-            onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)}
-          />
-          <Data
-            type="date"
-            name="date2"
-            id="date2"
-            value={model.date2}
             onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)}
           />
           <Botao onClick={action}>Pesquisar</Botao>

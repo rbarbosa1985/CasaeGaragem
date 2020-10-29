@@ -21,7 +21,6 @@ const Home = () => {
   const [manufacture,setManufacture] = useState('')
   const [provider,setProvider] = useState('')
   const [date,setDate] = useState(str_data)
-  const [date2,setDate2] = useState(str_data)
   const [activePage, setActivePage] = useState(0);
   const [dados, setDados] = useState('');
 
@@ -30,13 +29,13 @@ const Home = () => {
   useEffect(() => {
    
     function getDados() {
-    api.get(`/products/fiters/${product}&${provider}&${manufacture}&${date}&${date2}?linesPerPage=4&page=${activePage}`).then((response) => {
-      setDados(`products/pdf/${product}&${provider}&${manufacture}&${date}&${date2}`);
+    api.get(`/products/fiters/${product}&${provider}&${manufacture}&${date}?linesPerPage=4&page=${activePage}`).then((response) => {
+      setDados(`products/pdf/${product}&${provider}&${manufacture}&${date}`);
       setRecords(response.data);
     });
     }
     getDados();
-  }, [activePage, date, date2, manufacture, product, provider]);
+  }, [activePage, date, manufacture, product, provider]);
 
   const handleFilterChange = (filter: Filters) => {
     setProduct(filter.product);
@@ -48,13 +47,6 @@ const Home = () => {
     else {
       setDate(filter.date);
     }
-    if (filter.date2 === ''){
-      setDate(str_data);
-    }
-    else{
-      setDate2(filter.date2);
-    }
-    
     
   }
 

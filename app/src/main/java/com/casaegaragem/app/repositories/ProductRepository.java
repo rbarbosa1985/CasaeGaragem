@@ -10,36 +10,62 @@ import org.springframework.stereotype.Repository;
 
 import com.casaegaragem.app.entities.Product;
 import com.casaegaragem.app.entities.reports.Providers;
-import com.casaegaragem.app.entities.reports.QuantityExit;
-import com.casaegaragem.app.entities.reports.QuantityInput;
-import com.casaegaragem.app.entities.reports.QuantityYear;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
+
+	@Query(value = "SELECT COALESCE(SUM(ip.QTD_ITENS), 0) as QtdYear "
+			+ "FROM TB_EXITPRODUCT as ip,  TB_EXIT  as i "
+			+ "WHERE ip.EXIT_ID  = i.ID "
+			+ "and ip.PRODUCT_ID = :ID_PROD "
+			+ "and i.date > (SELECT DATEADD(Month, -1, :date)) "
+			+ "and i.date < :date", nativeQuery = true)
+	Integer mes(Integer ID_PROD, String date);
+
+	@Query(value = "SELECT COALESCE(SUM(ip.QTD_ITENS), 0) as QtdYear "
+			+ "FROM TB_EXITPRODUCT as ip,  TB_EXIT  as i "
+			+ "WHERE ip.EXIT_ID  = i.ID "
+			+ "and ip.PRODUCT_ID = :ID_PROD "
+			+ "and i.date > (SELECT DATEADD(Month, -2, :date)) "
+			+ "and i.date < (SELECT DATEADD(Month, -1, :date))", nativeQuery = true)
+	Integer mes2(Integer ID_PROD, String date);
 	
 	@Query(value = "SELECT COALESCE(SUM(ip.QTD_ITENS), 0) as QtdYear "
-			+ "FROM TB_EXITPRODUCT as ip,  TB_EXIT  as i  "
-			+ "where ip.EXIT_ID  = i.ID  "
+			+ "FROM TB_INPUTPRODUCT as ip,  TB_INPUT  as i "
+			+ "WHERE ip.INPUT_ID  = i.ID "
 			+ "and ip.PRODUCT_ID = :ID_PROD "
-			+ "and i.date > :date "
-			+ "and i.date < :date2", nativeQuery = true)
-	QuantityYear quantityYear(Integer ID_PROD, String date, String date2);
+			+ "and i.date > (SELECT DATEADD(Month, -1, :date)) "
+			+ "and i.date < :date", nativeQuery = true)
+	Integer mesSaida(Integer ID_PROD, String date);
 	
-	@Query(value = "SELECT COALESCE(SUM(ip.QTD_ITENS), 0) as QtdEntrada "
-			+ "FROM TB_INPUTPRODUCT as ip,  TB_INPUT  as i  "
-			+ "where ip.INPUT_ID  = i.ID  "
+	@Query(value = "SELECT COALESCE(SUM(ip.QTD_ITENS), 0) as QtdYear "
+			+ "FROM TB_INPUTPRODUCT as ip,  TB_INPUT  as i "
+			+ "WHERE ip.INPUT_ID  = i.ID "
 			+ "and ip.PRODUCT_ID = :ID_PROD "
-			+ "and i.date > :date "
-			+ "and i.date < :date2", nativeQuery = true)
-	QuantityInput quantityInput(Integer ID_PROD, String date, String date2);
+			+ "and i.date > (SELECT DATEADD(Month, -2, :date)) "
+			+ "and i.date < (SELECT DATEADD(Month, -1, :date))", nativeQuery = true)
+	Integer mes2Saida(Integer ID_PROD, String date);
 	
-	@Query(value = "SELECT COALESCE(SUM(ep.QTD_ITENS), 0) as QtdSaida "
-			+ "FROM TB_EXITPRODUCT as ep,  TB_EXIT   as e  "
-			+ "where ep.EXIT_ID   = e.ID  "
-			+ "and ep.PRODUCT_ID = :ID_PROD "
-			+ "and e.date > :date "
-			+ "and e.date < :date2", nativeQuery = true)
-	QuantityExit quantityExit(Integer ID_PROD, String date, String date2);
+	@Query(value = "SELECT COUNT (*) AS FREQ "
+	+ "FROM TB_EXITPRODUCT   as ip, TB_EXIT  as i "
+	+ "WHERE ip.EXIT_ID  = i.ID and ip.PRODUCT_ID = :ID_PROD "
+	+ "and i.date > (SELECT DATEADD(Month, -1, :date)) "
+	+ "and i.date < :date", nativeQuery = true)
+	Integer frequencia(Integer ID_PROD, String date);
+	
+	@Query(value = "SELECT COALESCE(SUM(ip.QTD_ITENS), 0) as QtdYear "
+			+ "FROM TB_EXITPRODUCT as ip,  TB_EXIT  as i "
+			+ "WHERE ip.EXIT_ID  = i.ID "
+			+ "and ip.PRODUCT_ID = :ID_PROD "
+			+ "and i.date > (SELECT DATEADD(Month, -3, :date)) "
+			+ "and i.date < :date", nativeQuery = true)
+	Integer media(Integer ID_PROD, String date);
+	
+	@Query(value = "SELECT COALESCE(SUM(ip.QTD_ITENS), 0) as QtdEntrada "	
+			+ "FROM TB_EXITPRODUCT as ip, TB_EXIT  as i "
+			+ "WHERE ip.EXIT_ID = i.ID and ip.PRODUCT_ID = :ID_PROD "
+			+ "and i.date Like '2019%' ", nativeQuery = true)	
+	Integer anoanterior(Integer ID_PROD);
 	
 	@Query(value = "select pr.name, i.provider_id, pr.tempo "
 			+ "from tb_provider as pr, tb_input as i, tb_inputproduct as ip, tb_product as p "

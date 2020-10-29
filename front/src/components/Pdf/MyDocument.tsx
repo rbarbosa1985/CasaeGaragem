@@ -2,7 +2,6 @@ import React from "react";
 import { Page, Text, View, Document } from "@react-pdf/renderer";
 import { styles } from "./style";
 import {RecordResponse} from "./types";
-import './styles.css';
 
 // Create Document Component
 const MyDocument = (content: RecordResponse) => (

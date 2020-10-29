@@ -20,24 +20,32 @@ public class ProductService {
 	private ProductRepository repository;
 	
 	@Transactional(readOnly = true)
-	public Page<ProductDTO> findByProd(String provider, String product, String manufacture, String date, String date2, PageRequest pageRequest) {
+	public Page<ProductDTO> findByProd(String provider, String product, String manufacture, String date, PageRequest pageRequest) {
 		Page<Product> list = repository.filters(provider, product, manufacture, pageRequest); 
-	
-		return list.map( x -> new ProductDTO(x, repository.providers(x.getId()), 
-				repository.quantityInput(x.getId(),date, date2).getQtdEntrada(), 
-				repository.quantityExit(x.getId(),date, date2).getQtdSaida() 
+
+		
+		return list.map( x -> new ProductDTO(x, repository.providers(x.getId()), repository.mes(x.getId(), date), 
+				repository.mes2Saida(x.getId(), date) - repository.mes2(x.getId(), date), 
+				repository.mes2Saida(x.getId(), date) - repository.mes2(x.getId(), date), 
+				repository.media(x.getId(), date),
+				repository.frequencia(x.getId(), date),
+				repository.anoanterior(x.getId())
 				));
 	}
 	
 	@Transactional(readOnly = true)
-	public List<ProductDTO> filtersPdf(String provider, String product, String manufacture, String date, String date2) {
+	public List<ProductDTO> filtersPdf(String provider, String product, String manufacture, String date) {
 		List<Product> list = repository.filtersPdf(provider, product, manufacture); 
 	
 		List<ProductDTO> list2 = new ArrayList<>();
 		
 		list.forEach(x -> list2.add(new ProductDTO(x, repository.providers(x.getId()), 
-				repository.quantityInput(x.getId(), date, date2).getQtdEntrada(), 
-				repository.quantityExit(x.getId(), date, date2).getQtdSaida() 
+				repository.mes2Saida(x.getId(), date) - repository.mes2(x.getId(), date), 
+				repository.mes2Saida(x.getId(), date) - repository.mes2(x.getId(), date),
+				repository.mes(x.getId(), date), 
+				repository.media(x.getId(), date),
+				repository.frequencia(x.getId(), date),
+				repository.anoanterior(x.getId())
 				)));
 		
 		return list2;
