@@ -1,5 +1,5 @@
 import React from "react";
-import { RecordResponse } from "./types";
+import { Props } from "./types";
 import {
   ContBody,
   CardProduct,
@@ -20,9 +20,7 @@ import {
   Text,
 } from "./style";
 
-function CardProductComp({ content }: RecordResponse) {
-  var data = new Date();
-  var ano4 = data.getFullYear() -1;
+function CardProductComp({ content, year } : Props ) {
 
   return (
     <>
@@ -79,7 +77,7 @@ function CardProductComp({ content }: RecordResponse) {
                 </ContRow>
                 <ContRow>
                   <InfCont>
-                    <Title>Média de venda {ano4}:</Title>
+                    <Title>Média de venda {year}:</Title>
                     <Text>{(product?.media_anual===0)?product?.media_anual:product?.media_anual.toFixed(1)}</Text>
                   </InfCont>
                   <InfCont>

@@ -1,5 +1,6 @@
-export type RecordResponse = {
+export type Props = {
   content?: Products[];
+  year: string;
 };
 
 export type Products = {

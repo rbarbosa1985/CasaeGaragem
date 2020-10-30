@@ -4,7 +4,6 @@ export type RecordResponse = {
 
 export type Props = {
   goToFilters: Function;
-  //content?: Products[];
   dados: string;
 };
 

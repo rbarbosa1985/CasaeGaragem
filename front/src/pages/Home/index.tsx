@@ -21,23 +21,24 @@ const Home = () => {
   const [provider, setProvider] = useState("");
   const [date, setDate] = useState(str_data);
   const [activePage, setActivePage] = useState(0);
-  const [dados, setDados] = useState("");
+  const [dados, setDados] = useState(""); 
+  const [year, setYear] = useState("2019"); 
 
   useEffect(() => {
-    function getDados() {
-      api
+    async function getDados() {
+      await api
         .get(
-          `/products/fiters/${product}&${provider}&${manufacture}&${date}?linesPerPage=4&page=${activePage}`
+          `/products/fiters/${product}&${provider}&${manufacture}&${date}&${year}?linesPerPage=4&page=${activePage}`
         )
         .then((response) => {
           setDados(
-            `products/pdf/${product}&${provider}&${manufacture}&${date}`
+            `products/pdf/${product}&${provider}&${manufacture}&${date}&${year}`
           );
           setRecords(response.data);
         });
     }
     getDados();
-  }, [activePage, date, manufacture, product, provider]);
+  }, [activePage, date, manufacture, product, provider, year]);
 
   const handleFilterChange = (filter: Filters) => {
     setProduct(filter.product);
@@ -47,6 +48,15 @@ const Home = () => {
       setDate(str_data);
     } else {
       setDate(filter.date);
+      var i = 0;
+      var aux = '';
+      for (i = 0; i <4 ; i++){
+        aux = aux + filter.date.charAt(i);
+      }
+      i = Number(aux);
+      i=i-1;
+      aux = String(i);
+      setYear(aux);
     }
   };
 
@@ -61,7 +71,7 @@ const Home = () => {
       </Header>
       <Body>
         <CampPesquisa goToFilters={handleFilterChange} dados={dados} />
-        <CardProductComp content={records?.content} />
+        <CardProductComp content={records?.content} year={year} />
         <Pagination
           activePage={activePage}
           totalPages={records?.totalPages}

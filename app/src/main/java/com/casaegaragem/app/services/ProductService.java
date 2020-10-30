@@ -23,6 +23,14 @@ public class ProductService {
 	public Page<ProductDTO> findByProd(String provider, String product, String manufacture, String date, String year, PageRequest pageRequest) {
 		Page<Product> list = repository.filters(provider, product, manufacture, pageRequest); 
 
+		list.forEach(x ->
+		System.out.println("Diferença Entrada: " + (repository.mes2Saida(x.getId(), date) - repository.mes2(x.getId(), date))));
+		list.forEach(x ->
+				System.out.println("Media: " + (repository.media(x.getId(), date))));
+		list.forEach(x ->
+				System.out.println("Frequencia: " + (repository.frequencia(x.getId(), date))));
+		list.forEach(x ->
+				System.out.println("Ano: " + (repository.anoanterior(x.getId(), year))));
 		
 		return list.map( x -> new ProductDTO(x, repository.providers(x.getId()), repository.mes(x.getId(), date), 
 				repository.mes2Saida(x.getId(), date) - repository.mes2(x.getId(), date), 

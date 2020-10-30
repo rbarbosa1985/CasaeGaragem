@@ -81,12 +81,12 @@ public class ProductDTO implements Serializable {
 			auxiliar = 0.0;
 			
 			auxiliar = ((double)(qtdEntrada2+qtdEntrada))/2;
+			this.giro = ((double) qtdSaida)/auxiliar;	
 			
-			this.media_venda = ((double) (qtdMensal))/90;
-			this.giro = ((double) qtdSaida)/auxiliar;
-			this.media_anual = ((double)anoanterior)/12;
-			this.media_mensal = ((double) (qtdMensal))/3;
 		}
+		this.media_venda = ((double) (qtdMensal))/90;
+		this.media_anual = ((double)anoanterior)/12;
+		this.media_mensal = ((double) (qtdMensal))/3;
 		
 	}
 
