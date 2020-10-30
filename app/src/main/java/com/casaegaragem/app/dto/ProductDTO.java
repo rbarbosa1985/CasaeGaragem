@@ -65,22 +65,17 @@ public class ProductDTO implements Serializable {
 		this(entity);
 		
 		Double auxiliar = 0.0;
-		
-		System.out.println("Produto: " + entity.getId() + " Entrada: " + qtdEntrada);
-		System.out.println("Produto: " + entity.getId() + " Entrada: " + qtdEntrada2);
-		System.out.println("Produto: " + entity.getId() + " Saida: " + qtdSaida);
-		System.out.println("Produto: " + entity.getId() + " Mensal: " + qtdMensal);
-		System.out.println("Produto: " + entity.getId() + " Tempo: " + providers.get(0).getTempo());
-		System.out.println("Produto: " + entity.getId() + " Frequencia: " + frequencia);
-		
 		providers.forEach(prov -> this.providers.add(new ProviderDTO(prov.getProvider_id(), prov.getName(), prov.getTempo())));
 		if ((providers.size() != 0) && (qtdEntrada != 0) && (providers.get(0).getTempo() != 0))
 		{
 			auxiliar = ((double) (qtdSaida))/30;
-			System.out.println("Auxiliar: " + auxiliar);
 			this.estoque_min = (auxiliar)*providers.get(0).getTempo();
-			
-			this.estoque_max = (((auxiliar)/(auxiliar/frequencia))) + this.estoque_min;
+			if ((frequencia != 0) && (auxiliar != 0)) {
+				this.estoque_max = (((auxiliar)/(auxiliar/frequencia))) + this.estoque_min;
+			}
+			else {
+				this.estoque_max = 0.0;
+			}
 			
 			auxiliar = 0.0;
 			
