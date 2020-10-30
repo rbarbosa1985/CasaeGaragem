@@ -65,6 +65,7 @@ public class ProductDTO implements Serializable {
 		this(entity);
 		
 		Double auxiliar = 0.0;
+
 		providers.forEach(prov -> this.providers.add(new ProviderDTO(prov.getProvider_id(), prov.getName(), prov.getTempo())));
 		if ((providers.size() != 0) && (qtdEntrada != 0) && (providers.get(0).getTempo() != 0))
 		{

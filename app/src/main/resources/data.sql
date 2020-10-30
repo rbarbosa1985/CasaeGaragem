@@ -47,6 +47,7 @@ INSERT INTO tb_provider (name, created_At, tempo) VALUES ('SILENIA BARRETO JADER
 
 
 
+
 INSERT INTO tb_manufacturer (name, created_At) VALUES ('ALIAN�A', NOW());
 INSERT INTO tb_manufacturer (name, created_At) VALUES ('P.FREE', NOW());
 INSERT INTO tb_manufacturer (name, created_At) VALUES ('SIL', NOW());
@@ -123,6 +124,7 @@ INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra,
 INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'SENSOR', 2, 2, 1, 50, NOW(), 6);
 INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'REDUCAO EXCENT.ESG. DN75X50', 2, 2, 1, 20, NOW(), 5);
 INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'LUVA ESGOTO DN50', 2, 2, 1, 15, NOW(), 4);
+
 INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'CURVA 90� ESGOTO LONGA DN100', 2, 2, 1, 10, NOW(), 3);
 INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'DESEMPENADEIRA PLAST. 17X30CM C/ESPUMA ROMA/MAX', 2, 2, 1, 3, NOW(), 2);
 INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'VASSOURA MAX 18D ARAME FIXA C/C', 2, 2, 1, 6, NOW(), 1);

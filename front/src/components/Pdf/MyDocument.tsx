@@ -26,12 +26,12 @@ const MyDocument = (content: RecordResponse) => (
           <Text style={styles.text}>{product?.provider3}</Text>
         </View>
         <View style={styles.section}>
-    <Text>GIRO DE ESTOQUE: {product.giro}</Text>
-          <Text>ESTOQUE MÍNIMO: {product.estoque_min}</Text>
-          <Text>ESTOQUE MÁXIMO: {product.estoque_max}</Text>
-          <Text>MEDIA DE VENDA ANUAL: {product.media_anual}</Text>
-          <Text>MEDIA DE VENDA MENSAL: {product.media_mensal}</Text>
-          <Text>MEDIA DE COMPRA: {product.media_venda}</Text>
+    <Text>GIRO DE ESTOQUE: {product.giro.toFixed(1)}</Text>
+          <Text>ESTOQUE MÍNIMO: {product.estoque_min.toFixed(1)}</Text>
+          <Text>ESTOQUE MÁXIMO: {product.estoque_max.toFixed(1)}</Text>
+          <Text>MEDIA DE VENDA 2019: {product.media_anual.toFixed(1)}</Text>
+          <Text>MEDIA DE VENDA MENSAL: {product.media_mensal.toFixed(1)}</Text>
+          <Text>MEDIA DE VENDA DIARIA: {product.media_venda.toFixed(1)}</Text>
         </View>
       </View>
     ))}

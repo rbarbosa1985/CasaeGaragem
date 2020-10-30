@@ -21,8 +21,8 @@ import {
 } from "./style";
 
 function CardProductComp({ content }: RecordResponse) {
-
-  
+  var data = new Date();
+  var ano4 = data.getFullYear() -1;
 
   return (
     <>

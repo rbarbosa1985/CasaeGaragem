@@ -33,6 +33,7 @@ a {
 button {
   border: none;
   cursor: pointer;
+  background-color: transparent;
 }
 button:focus {
   outline: none;

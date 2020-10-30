@@ -11,7 +11,7 @@ export const CardProduct = styled.div`
   margin-bottom: 0.5vw;
   border-radius: 0.5vw;
   background-color: var(--color-lightgray);
-  @media (max-width: 800px) {
+  @media (max-width: 768px) {
     margin-bottom: 1.5vw;
   }
 `;
@@ -30,78 +30,55 @@ export const Id = styled.div`
   padding: 0.35vw;
   flex: 1;
   display: flex;
-  flex-direction: row;
-  @media (max-width: 800px) {
-    flex-direction: column;
-  }
+  flex-direction: column;
 `;
 
 export const Descricao = styled.div`
   padding: 0.35vw;
   flex: 5;
   display: flex;
-  flex-direction: row;
-  @media (max-width: 800px) {
-    flex-direction: column;
-  }
+  flex-direction: column;
 `;
 
 export const Fabricante = styled.div`
   padding: 0.35vw;
   flex: 4;
   display: flex;
-  flex-direction: row;
-  @media (max-width: 800px) {
-    flex-direction: column;
-  }
+  flex-direction: column;
 `;
 
 export const Estoque = styled.div`
   padding: 0.35vw;
   flex: 2;
   display: flex;
-  flex-direction: row;
-  @media (max-width: 800px) {
-    flex-direction: column;
-  }
+  flex-direction: column;
 `;
 
 export const BodyCard = styled.div`
   flex: 1;
-  flex-direction: row;
+  flex-direction: column;
   display: flex;
-  @media (max-width: 1200px) {
-    flex-direction: column;
-  }
 `;
 
 export const Fornecedor = styled.div`
   flex: 1;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border-radius: 0px 0px 0px 0.5vw;
+  flex-direction: row;
   background-color: #e4e4e4;
-  @media (max-width: 1200px) {
-    flex-direction: row;
-    border-radius: 0px;
-  }
 `;
 
 export const InfFornecedor = styled.div`
+  flex: 1;
   padding: 0.35vw;
   display: flex;
-  align-items: center;
-  @media (max-width: 650px) {
-    flex-direction: column;
-  }
+  flex-direction: column;
 `;
 
 export const Cont = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  @media (max-width: 1000px) {
+  @media (max-width: 768px) {
     flex-direction: row;
   }
 `;
@@ -110,7 +87,7 @@ export const ContRow = styled.div`
   flex: 1;
   display: flex;
   flex-direction: row;
-  @media (max-width: 1000px) {
+  @media (max-width: 768px) {
     flex-direction: column;
   }
 `;
@@ -120,26 +97,24 @@ export const InfCont = styled.div`
   display: flex;
   align-items: center;
   padding: 0.35vw;
-  @media (max-width: 1000px) {
-    justify-content: center;
-  }
 `;
 
 export const TitleHeader = styled.div`
   font-size: 22px;
   font-weight: bold;
-  margin-right: 0.35vw;
   display: flex;
-  align-items: center;
-  @media (max-width: 1200px) {
+  @media (max-width: 1024px) {
     font-size: 20px;
     margin-right: 0.7vw;
   }
-  @media (max-width: 800px) {
+  @media (max-width: 768px) {
     font-size: 18px;
   }
-  @media (max-width: 650px) {
+  @media (max-width: 425px) {
     font-size: 16px;
+  }
+  @media (max-width: 360px) {
+    font-size: 14px;
   }
 `;
 
@@ -147,20 +122,22 @@ export const TextHeader = styled.div`
   font-size: 22px;
   display: flex;
   align-items: center;
-
-  max-width: 25ch;
+  max-width: 35vw;
   overflow: hidden;
-  text-overflow: ellipsis;
   white-space: nowrap;
-
-  @media (max-width: 1200px) {
+  @media (max-width: 1024px) {
     font-size: 20px;
   }
-  @media (max-width: 800px) {
+  @media (max-width: 768px) {
     font-size: 18px;
   }
-  @media (max-width: 650px) {
+  @media (max-width: 425px) {
+    max-width: 33vw;
     font-size: 16px;
+  }
+  @media (max-width: 360px) {
+    max-width: 33vw;
+    font-size: 14px;
   }
 `;
 
@@ -168,34 +145,37 @@ export const Title = styled.div`
   font-size: 18px;
   font-weight: bold;
   margin-right: 0.35vw;
-  @media (max-width: 1200px) {
+  @media (max-width: 1024px) {
     font-size: 16px;
     margin-right: 0.7vw;
   }
-  @media (max-width: 800px) {
+  @media (max-width: 768px) {
     font-size: 14px;
   }
-  @media (max-width: 650px) {
+  @media (max-width: 425px) {
     font-size: 12px;
+  }
+  @media (max-width: 360px) {
+    font-size: 10px;
   }
 `;
 
 export const Text = styled.div`
-max-width: 40ch;
-overflow: hidden;
-text-overflow: ellipsis;
-white-space: nowrap;
   font-size: 18px;
-  @media (max-width: 1200px) {
+  max-width: 28vw;
+  overflow: hidden;
+  white-space: nowrap;
+  @media (max-width: 1024px) {
     font-size: 16px;
-    max-width: 20ch;
   }
-  @media (max-width: 800px) {
+  @media (max-width: 768px) {
     font-size: 14px;
-    max-width: 15ch;
   }
-  @media (max-width: 650px) {
+  @media (max-width: 425px) {
+    max-width: 26vw;
     font-size: 12px;
-    max-width: 20ch;
+  }
+  @media (max-width: 360px) {
+    font-size: 10px;
   }
 `;
