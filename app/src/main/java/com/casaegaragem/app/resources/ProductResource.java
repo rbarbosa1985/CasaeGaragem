@@ -23,12 +23,13 @@ public class ProductResource {
 	@Autowired
 	private ProductService service;
 	
-	@GetMapping("/pdf/{product}&{provider}&{manufacture}&{date}")
+	@GetMapping("/pdf/{product}&{provider}&{manufacture}&{date}&{year}")
 	public ResponseEntity<List<ProductDTO>> filtersPdf(
 			@PathVariable("product") String product,
 			@PathVariable("provider") String provider,
 			@PathVariable("manufacture") String manufacture,
-			@PathVariable("date") String date
+			@PathVariable("date") String date,
+			@PathVariable("year") String year
 			) {		
 		
 		if(product.isEmpty()) {
@@ -43,19 +44,23 @@ public class ProductResource {
 		if(date.isEmpty()) {
 			date = "";
 		}
+		if(year.isEmpty()) {
+			year = "";
+		}
 		
 		
-		List<ProductDTO> list = service.filtersPdf(provider, product, manufacture, date);	
+		List<ProductDTO> list = service.filtersPdf(provider, product, manufacture, date, year);	
 		return ResponseEntity.ok().body(list);
 	}
 	
 	
-	@GetMapping("/fiters/{product}&{provider}&{manufacture}&{date}")
+	@GetMapping("/fiters/{product}&{provider}&{manufacture}&{date}&{year}")
 	public ResponseEntity<Page<ProductDTO>> findByName(
 			@PathVariable("product") String product,
 			@PathVariable("provider") String provider,
 			@PathVariable("manufacture") String manufacture,
 			@PathVariable("date") String date,
+			@PathVariable("year") String year,
 			@RequestParam(value = "page", defaultValue = "0") Integer page,
 			@RequestParam(value = "linesPerPage", defaultValue = "4") Integer linesPerPage,
 			@RequestParam(value = "direction", defaultValue = "ASC") String direction,
@@ -76,9 +81,12 @@ public class ProductResource {
 		if(date.isEmpty()) {
 			date = "";
 		}
+		if(year.isEmpty()) {
+			year = "";
+		}
 		
 		
-		Page<ProductDTO> list = service.findByProd(provider, product, manufacture, date, pageRequest);	
+		Page<ProductDTO> list = service.findByProd(provider, product, manufacture, date, year, pageRequest);	
 		return ResponseEntity.ok().body(list);
 	}
 	

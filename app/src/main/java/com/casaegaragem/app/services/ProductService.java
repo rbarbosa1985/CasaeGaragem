@@ -20,7 +20,7 @@ public class ProductService {
 	private ProductRepository repository;
 	
 	@Transactional(readOnly = true)
-	public Page<ProductDTO> findByProd(String provider, String product, String manufacture, String date, PageRequest pageRequest) {
+	public Page<ProductDTO> findByProd(String provider, String product, String manufacture, String date, String year, PageRequest pageRequest) {
 		Page<Product> list = repository.filters(provider, product, manufacture, pageRequest); 
 
 		
@@ -29,12 +29,12 @@ public class ProductService {
 				repository.mes2Saida(x.getId(), date) - repository.mes2(x.getId(), date), 
 				repository.media(x.getId(), date),
 				repository.frequencia(x.getId(), date),
-				repository.anoanterior(x.getId())
+				repository.anoanterior(x.getId(), year)
 				));
 	}
 	
 	@Transactional(readOnly = true)
-	public List<ProductDTO> filtersPdf(String provider, String product, String manufacture, String date) {
+	public List<ProductDTO> filtersPdf(String provider, String product, String manufacture, String year, String date) {
 		List<Product> list = repository.filtersPdf(provider, product, manufacture); 
 	
 		List<ProductDTO> list2 = new ArrayList<>();
@@ -45,7 +45,7 @@ public class ProductService {
 				repository.mes(x.getId(), date), 
 				repository.media(x.getId(), date),
 				repository.frequencia(x.getId(), date),
-				repository.anoanterior(x.getId())
+				repository.anoanterior(x.getId(), year)
 				)));
 		
 		return list2;

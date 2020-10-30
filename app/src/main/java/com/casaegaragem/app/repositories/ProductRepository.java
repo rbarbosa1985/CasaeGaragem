@@ -64,8 +64,8 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 	@Query(value = "SELECT COALESCE(SUM(ip.QTD_ITENS), 0) as QtdEntrada "	
 			+ "FROM TB_EXITPRODUCT as ip, TB_EXIT  as i "
 			+ "WHERE ip.EXIT_ID = i.ID and ip.PRODUCT_ID = :ID_PROD "
-			+ "and i.date Like '2019%' ", nativeQuery = true)	
-	Integer anoanterior(Integer ID_PROD);
+			+ "and i.date Like :year||'%' ", nativeQuery = true)	
+	Integer anoanterior(Integer ID_PROD, String year);
 	
 	@Query(value = "select pr.name, i.provider_id, pr.tempo "
 			+ "from tb_provider as pr, tb_input as i, tb_inputproduct as ip, tb_product as p "
