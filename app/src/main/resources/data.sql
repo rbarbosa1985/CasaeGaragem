@@ -47,10 +47,11 @@ INSERT INTO tb_provider (name, created_At, tempo) VALUES ('SILENIA BARRETO JADER
 
 
 
-INSERT INTO tb_manufacturer (name, created_At) VALUES ('ALIANÇA', NOW());
+
+INSERT INTO tb_manufacturer (name, created_At) VALUES ('ALIANï¿½A', NOW());
 INSERT INTO tb_manufacturer (name, created_At) VALUES ('P.FREE', NOW());
 INSERT INTO tb_manufacturer (name, created_At) VALUES ('SIL', NOW());
-INSERT INTO tb_manufacturer (name, created_At) VALUES ('S.ROMÃO', NOW());
+INSERT INTO tb_manufacturer (name, created_At) VALUES ('S.ROMï¿½O', NOW());
 INSERT INTO tb_manufacturer (name, created_At) VALUES ('MOMFORT', NOW());
 INSERT INTO tb_manufacturer (name, created_At) VALUES ('MAX', NOW());
 INSERT INTO tb_manufacturer (name, created_At) VALUES ('MINASUL', NOW());
@@ -86,23 +87,23 @@ INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra,
 INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'TORQUES ARMADOR VERDE 12" (30CM)', 2, 2, 1, 11, NOW(), 3);
 INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'TALHADEIRA CHATA 10" (25CM)', 2, 2, 1, 10, NOW(), 4);
 INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'PONTEIRA LISA 3/4"X8" (20CM)', 2, 2, 1, 30, NOW(), 5);
-INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'DOBRADIÇA P/PORTEIRA N 00', 2, 2, 1, 22, NOW(), 6);
+INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'DOBRADIï¿½A P/PORTEIRA N 00', 2, 2, 1, 22, NOW(), 6);
 INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'CADEADO STAM 45MM', 2, 2, 1, 7, NOW(), 6);
 INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'PARAFUSO P/VASO N08 C/20', 2, 2, 1, 10, NOW(), 5);
 INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'PREGO P/TELHA 18X30 C/50UND', 2, 2, 1, 15, NOW(), 4);
-INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'PREGO AÇO 12X12 COM CABEÇA 1KG', 2, 2, 1, 20, NOW(), 3);
+INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'PREGO Aï¿½O 12X12 COM CABEï¿½A 1KG', 2, 2, 1, 20, NOW(), 3);
 INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'ESCAPULA B10 (6,3X70) C/100UND', 2, 2, 1, 21, NOW(), 2);
 INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'GANCHO B10 C/100UND', 2, 2, 1, 2, NOW(), 1);
 INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'PARAFUSO MADEIRA 2,8X20 PHS CX/1000', 2, 2, 30, 13, NOW(), 1);
 INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'PITAO B10 6,3 X 70 C/100UND', 2, 2, 1, 12, NOW(), 2);
 INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'REBITE ALUM.J312 (3,2X12) CX1000', 2, 2, 1, 11, NOW(), 3);
-INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'PREGO DE AÇO ENCARTELADO 10X10 C/C 20GR', 2, 2, 1, 10, NOW(), 4);
+INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'PREGO DE Aï¿½O ENCARTELADO 10X10 C/C 20GR', 2, 2, 1, 10, NOW(), 4);
 INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'ARAME FIO 20 GALV. C/10M CX/10RLS', 2, 2, 1, 9, NOW(), 5);
 INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'BUCHA IVPLAST B-5 C/1000 UND', 2, 2, 1, 8, NOW(), 6);
 INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'CANTONEIRA MAO FRANCESA 20CM 6X8" BRANCA', 2, 2, 1, 7, NOW(), 6);
 INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'FERROLHO 5" ZINCADO', 2, 2, 1, 6, NOW(), 5);
 INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'TRINCO LOTH 2,0" GALV.ENCAR.', 2, 2, 1, 5, NOW(), 4);
-INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'ESPÁTULA 10 CM CABO MADEIRA', 2, 2, 1, 4, NOW(), 3);
+INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'ESPï¿½TULA 10 CM CABO MADEIRA', 2, 2, 1, 4, NOW(), 3);
 INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'INTERRUPTOR 1X PARALELO', 2, 2, 1, 3, NOW(), 2);
 INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'PULSADOR P/CAMPAINHA C/PLACA', 2, 2, 1, 2, NOW(), 1);
 INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'CONECTOR ANTENA C/PLACA 4X2', 2, 2, 1, 13, NOW(), 1);
@@ -115,7 +116,7 @@ INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra,
 INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'CAIXA P/ LINHA DE SOBREPOR 4X2 (115X75X40)', 2, 2, 1, 6, NOW(), 5);
 INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'TELA SOLDADA MORLAN FIO 1,9MM 1.00MX25MT (5X10CM)', 2, 2, 1, 5, NOW(), 4);
 INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'ESCOVA CEPA MADEIRA 177X55MM', 2, 2, 1, 13, NOW(), 1);
-INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'ESCOVA DE AÇO 3 FILEIRAS C/C PLAST', 2, 2, 1, 12, NOW(), 2);
+INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'ESCOVA DE Aï¿½O 3 FILEIRAS C/C PLAST', 2, 2, 1, 12, NOW(), 2);
 INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'GARFO P/ROLO 23CM', 2, 2, 1, 11, NOW(), 3);
 INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'BROXA PLAST.REDONDA 7,5CM', 2, 2, 1, 10, NOW(), 4);
 INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'TELA HEX.MANG.(3") FIO16 50X0,80M', 2, 2, 1, 22, NOW(), 5);
@@ -123,7 +124,8 @@ INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra,
 INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'SENSOR', 2, 2, 1, 50, NOW(), 6);
 INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'REDUCAO EXCENT.ESG. DN75X50', 2, 2, 1, 20, NOW(), 5);
 INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'LUVA ESGOTO DN50', 2, 2, 1, 15, NOW(), 4);
-INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'CURVA 90º ESGOTO LONGA DN100', 2, 2, 1, 10, NOW(), 3);
+
+INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'CURVA 90ï¿½ ESGOTO LONGA DN100', 2, 2, 1, 10, NOW(), 3);
 INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'DESEMPENADEIRA PLAST. 17X30CM C/ESPUMA ROMA/MAX', 2, 2, 1, 3, NOW(), 2);
 INSERT INTO tb_product (codigo_Barras, referencia, descricao, unvenda, uncompra, quantidadecx, quantidade, created_At, manufacturer_id) VALUES (123456789, 987456321, 'VASSOURA MAX 18D ARAME FIXA C/C', 2, 2, 1, 6, NOW(), 1);
 
